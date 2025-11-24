@@ -24,7 +24,7 @@ Right now this site covers:
 
 ---
 
-## 🧩 Categories (MCTF25)
+## Categories (MCTF25)
 
 Click a category to jump to its challenges.
 
@@ -114,7 +114,7 @@ Click a category to jump to its challenges.
 
 ---
 
-## 👾 About this site
+## About this site
 
 This site is generated with **GitHub Pages** from  
 [`ANormalStick/CTF-Writeups`](https://github.com/ANormalStick/CTF-Writeups).
