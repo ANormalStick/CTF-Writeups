@@ -1,0 +1,144 @@
+# Blockchain 3 – Guess The Number
+
+**Category:** Blockchain  
+**Host:** `10.240.2.136`  
+**RPC:** `http://10.240.2.136:8545`  
+**TCP helper:** `10.240.2.136:31337`  
+
+---
+
+## Challenge Description
+
+> Hey! I am trying to make it big with the internet money craze, do you think you can guess the number?
+
+You are given an RPC endpoint and a TCP helper service that manages your personal challenge instance.
+
+The Solidity contract (simplified) is:
+
+```solidity
+contract GuessTheNumber {
+    bool public solved = false;
+    uint256 public correctValue;
+
+    constructor(uint256 _correctValue) {
+        correctValue = _correctValue;
+    }
+
+    function submit(uint256 x) external {
+        if (x == correctValue) {
+            solved = true;
+        }
+    }
+
+    function isSolved() external view returns (bool) {
+        return solved;
+    }
+}
+```
+
+Key observation: `correctValue` is a **public** state variable, which means Solidity generates a public getter function `correctValue()`.  
+So there is no “guessing” required – we just read the value via RPC.
+
+---
+
+## Exploitation Steps
+
+### 1. Get instance info
+
+Connect to the helper:
+
+```bash
+nc 10.240.2.136 31337
+```
+
+Then:
+
+```text
+> info
+id: GuessTheNumber
+rpc_port: 8545
+chain_id: 31337
+contract: 0xC529fE614D86C22939E20fa25D6960288B38a88A
+deployer: 0xD228eE6353498A932dC83eDA84a6E0fDE302c980
+```
+
+Set environment in your shell:
+
+```bash
+export RPC_URL=http://10.240.2.136:8545
+export CONTRACT=0xC529fE614D86C22939E20fa25D6960288B38a88A
+
+cast chain-id --rpc-url $RPC_URL   # 31337
+```
+
+### 2. Read the “secret” number
+
+```bash
+cast call $CONTRACT "correctValue()" --rpc-url $RPC_URL
+```
+
+Output:
+
+```text
+0x0000000000000000000000000000000000000000000000000000000000000000
+```
+
+This is just `0`.
+
+### 3. Create and fund a wallet
+
+Create a keypair:
+
+```bash
+cast wallet new
+# Address: 0xa8E0619A54734991D8D5884C7Ea6e97E9e175541
+# Private key: 0x8576d1...
+```
+
+Export the private key (never do this on mainnet, obviously):
+
+```bash
+export PRIVATE_KEY=0x8576d146e4ef07f2e902e79c6b32b8b9d6766f5cc7780182a3c1432d265fdbb3
+```
+
+Fund the address via the helper:
+
+```bash
+nc 10.240.2.136 31337
+> fund 0xa8E0619A54734991D8D5884C7Ea6e97E9e175541 1
+```
+
+(Optional) Check balance:
+
+```bash
+cast balance 0xa8E0619A54734991D8D5884C7Ea6e97E9e175541 --rpc-url $RPC_URL
+```
+
+### 4. Submit the correct number
+
+```bash
+cast send $CONTRACT "submit(uint256)" 0   --private-key $PRIVATE_KEY   --rpc-url $RPC_URL
+```
+
+Verify the challenge state:
+
+```bash
+cast call $CONTRACT "isSolved()" --rpc-url $RPC_URL
+# -> true / 0x1
+```
+
+### 5. Get the flag
+
+Back in the helper:
+
+```bash
+nc 10.240.2.136 31337
+> flag
+MCTF25{d4mm_y0u_c4n_s33_7h3_v4lu3}
+```
+
+---
+
+### 6. Flag
+
+MCTF25{d4mm_y0u_c4n_s33_7h3_v4lu3}
