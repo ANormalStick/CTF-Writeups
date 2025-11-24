@@ -154,31 +154,50 @@ html {
 
 .post h3, .page-content h3, article h3 {
   font-size: 1rem;
-  margin-top: 1.6rem;
-  margin-bottom: 0.4rem;
+  margin-top: 1.8rem;
+  margin-bottom: 0.8rem;
+  position: relative;
 }
 
-/* Tables – dark, with hover accent */
+/* fancy little bar under category headings */
+.post h3::after,
+.page-content h3::after,
+article h3::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 2px;
+  margin-top: 0.25rem;
+  border-radius: 999px;
+  background: linear-gradient(to right, #38bdf8, #22c55e, #a855f7);
+  opacity: 0.9;
+  transform-origin: left;
+  transform: scaleX(0.6);
+  animation: ctf-heading-glow 1.2s ease-out forwards;
+}
+
+/* Tables – compact cards + glowing buttons */
 
 table {
   border-collapse: collapse;
   width: 100%;
+  max-width: 520px;
   font-size: 0.85rem;
-  margin: 0.4rem 0 0.9rem;
-  border-radius: 0.6rem;
+  margin: 0.6rem auto 1.4rem;
+  border-radius: 0.9rem;
   overflow: hidden;
-  background: rgba(15, 23, 42, 0.9);
-  border: 1px solid rgba(15, 23, 42, 0.9);
-  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.55);
+  background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.94));
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6);
 }
 
 thead {
-  background: linear-gradient(to right, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.95));
+  background: linear-gradient(to right, rgba(15, 23, 42, 0.98), rgba(30, 64, 175, 0.85));
 }
 
 th,
 td {
-  padding: 0.55rem 0.8rem;
+  padding: 0.55rem 0.9rem;
   border-bottom: 1px solid var(--border-subtle);
 }
 
@@ -191,12 +210,21 @@ th {
   letter-spacing: 0.08em;
 }
 
+tbody td:first-child {
+  width: 100%;
+}
+
+tbody td:last-child {
+  white-space: nowrap;
+  text-align: right;
+}
+
 tbody tr:nth-child(even) td {
-  background-color: rgba(15, 23, 42, 0.85);
+  background-color: rgba(15, 23, 42, 0.94);
 }
 
 tbody tr:nth-child(odd) td {
-  background-color: rgba(15, 23, 42, 0.95);
+  background-color: rgba(15, 23, 42, 0.98);
 }
 
 tbody tr:last-child td {
@@ -212,15 +240,50 @@ tbody tr {
 
 tbody tr:hover {
   transform: translateY(-1px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 14px 40px rgba(8, 47, 73, 0.7);
 }
 
 tbody tr:hover td {
-  background-color: rgba(15, 23, 42, 0.98);
+  background-color: rgba(15, 23, 42, 1);
   box-shadow: inset 2px 0 0 var(--accent);
 }
 
-/* Links – animated underline */
+/* README button styling inside tables */
+
+td a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.28rem 0.9rem;
+  border-radius: 0.45rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: 1px solid rgba(56, 189, 248, 0.7);
+  background: radial-gradient(circle at top, rgba(56, 189, 248, 0.2), rgba(15, 23, 42, 0.9));
+  box-shadow: 0 0 0 1px rgba(15, 23, 42, 1), 0 0 16px rgba(56, 189, 248, 0.18);
+  transition:
+    transform 0.14s ease-out,
+    box-shadow 0.16s ease-out,
+    border-color 0.16s ease-out,
+    background 0.16s ease-out;
+}
+
+/* kill underline animation inside tables */
+td a::after {
+  display: none !important;
+}
+
+td a:hover {
+  transform: translateY(-1px);
+  border-color: rgba(56, 189, 248, 1);
+  background: radial-gradient(circle at top, rgba(56, 189, 248, 0.35), rgba(15, 23, 42, 0.95));
+  box-shadow:
+    0 0 0 1px rgba(15, 23, 42, 1),
+    0 0 24px rgba(56, 189, 248, 0.4);
+}
+
+/* Links – animated underline (outside tables) */
 
 a {
   color: var(--accent);
@@ -273,9 +336,8 @@ code, pre {
   }
 
   table {
-    display: block;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
   }
 }
 
@@ -298,6 +360,21 @@ code, pre {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes ctf-heading-glow {
+  0% {
+    opacity: 0;
+    transform: scaleX(0.2);
+  }
+  60% {
+    opacity: 1;
+    transform: scaleX(1.05);
+  }
+  100% {
+    opacity: 0.9;
+    transform: scaleX(1);
   }
 }
 </style>
@@ -381,7 +458,7 @@ Quick navigation by category:
 | Challenge         | Writeup                                      |
 |-------------------|----------------------------------------------|
 | A series of tubes | [README](./MCTF25/A%20series%20of%20tubes/)  |
-| Jokemartins       | [README](./MCTF25/Jokemartins/)             |
+| Jokemartins       | [README](./MCTF25/Jokemartins/)              |
 
 ### Pwn / Docker
 
