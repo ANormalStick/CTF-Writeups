@@ -190,7 +190,7 @@ Quick navigation by category:
 
 | Challenge     | Writeup                                                   |
 |--------------|-----------------------------------------------------------|
-| Astral Pulses | [index](./MCTF25/Astral%20Pulses/)             |
+| Astral Pulses | [README](./MCTF25/Astral%20Pulses/)             |
 | AI Translator | [README](./MCTF25/AI%20Translator/)             |
 
 ### Blockchain
