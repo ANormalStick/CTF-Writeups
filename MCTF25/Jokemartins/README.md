@@ -34,11 +34,6 @@ This became the core inspiration for our meme.
 
 We created a **two-panel “expectation vs reality” meme** based on the soup challenge.
 
-### Preview
-
-![Mārtiņa soup meme](./martins-soup-meme.png)
-
-
 ### Concept
 
 1. **Top panel – Expectations**
@@ -72,4 +67,5 @@ The joke is that we expected a normal “soup” / easy file, and instead got a 
 After review, the Cringe Council accepted the meme and replied with the flag.
 
 ---
+
 
