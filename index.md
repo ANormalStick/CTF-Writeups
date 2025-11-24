@@ -190,62 +190,62 @@ Quick navigation by category:
 
 | Challenge     | Writeup                                                   |
 |--------------|-----------------------------------------------------------|
-| Astral Pulses | [README](./MCTF25/Astral%20Pulses/README.md)             |
-| AI Translator | [README](./MCTF25/AI%20Translator/README.md)             |
+| Astral Pulses | [README](./MCTF25/Astral%20Pulses/)             |
+| AI Translator | [README](./MCTF25/AI%20Translator/)             |
 
 ### Blockchain
 
 | Challenge                 | Writeup                                                                 |
 |---------------------------|-------------------------------------------------------------------------|
-| Guess The Number          | [README](./MCTF25/%5BBlockchain%203%5D%20Guess%20The%20Number/README_Blockchain3_GuessTheNumber.md) |
-| Magical RPC Button        | [README](./MCTF25/%5BBlockchain%201%5D%20Magical%20RPC%20Button/README_Blockchain1_MagicalRPCButton.md) |
-| Unlimited Void            | [README](./MCTF25/Unlimited%20Void/Unlimited_Void_README.md)           |
-| Where Did I Leave My Flag | [README](./MCTF25/%5BBlockchain%202%5D%20Where%20Did%20I%20Leave%20My%20Flag/README_Blockchain2_WhereDidILeaveMyFlag.md) |
+| Guess The Number          | [README](./MCTF25/%5BBlockchain%203%5D%20Guess%20The%20Number/) |
+| Magical RPC Button        | [README](./MCTF25/%5BBlockchain%201%5D%20Magical%20RPC%20Button/) |
+| Unlimited Void            | [README](./MCTF25/Unlimited%20Void/)           |
+| Where Did I Leave My Flag | [README](./MCTF25/%5BBlockchain%202%5D%20Where%20Did%20I%20Leave%20My%20Flag/) |
 
 ### Blockchain / Forensics
 
 | Challenge               | Writeup                                                                 |
 |-------------------------|-------------------------------------------------------------------------|
-| Titanium Safe           | [index](./MCTF25/Titanium%20Safe/)                                     |
-| Sacred Martins Sequence | [README](./MCTF25/%5BBlockchain%204%5D%20Sacred%20Martins%20Sequence/readme.md) |
-| Sepolia Heist           | [README](./MCTF25/Sepolia%20Heist/readme.md)                           |
+| Titanium Safe           | [README](./MCTF25/Titanium%20Safe/)                                     |
+| Sacred Martins Sequence | [README](./MCTF25/%5BBlockchain%204%5D%20Sacred%20Martins%20Sequence/) |
+| Sepolia Heist           | [README](./MCTF25/Sepolia%20Heist/)                           |
 
 ### Crypto
 
 | Challenge               | Writeup                                                                 |
 |-------------------------|-------------------------------------------------------------------------|
-| Radical Security Animal | [README](./MCTF25/%5BCryptography%204%5D%20Radical%20Security%20Animal/README_crypto4.md) |
+| Radical Security Animal | [README](./MCTF25/%5BCryptography%204%5D%20Radical%20Security%20Animal/) |
 
 ### Forensics
 
 | Challenge         | Writeup                                             |
 |-------------------|-----------------------------------------------------|
-| Rewritten History | [README](./MCTF25/Rewritten%20History/README.md)    |
+| Rewritten History | [README](./MCTF25/Rewritten%20History/)    |
 
 ### Misc / Fun
 
 | Challenge         | Writeup                                             |
 |-------------------|-----------------------------------------------------|
-| A series of tubes | [README](./MCTF25/A%20series%20of%20tubes/readme.md) |
-| Jokemartins       | [README](./MCTF25/Jokemartins/Readme.md)            |
+| A series of tubes | [README](./MCTF25/A%20series%20of%20tubes/) |
+| Jokemartins       | [README](./MCTF25/Jokemartins/)            |
 
 ### Pwn / Docker
 
 | Challenge                  | Writeup                                                              |
 |----------------------------|----------------------------------------------------------------------|
-| ImgSharer                  | [README](./MCTF25/ImgSharer/README.md)                              |
-| Docker? I barely know her! | [README](./MCTF25/Docker,%20I%20barely%20know%20her!/README.md)     |
+| ImgSharer                  | [README](./MCTF25/ImgSharer/)                              |
+| Docker? I barely know her! | [README](./MCTF25/Docker,%20I%20barely%20know%20her!/)     |
 
 ### Web
 
 | Challenge              | Writeup                                                              |
 |------------------------|----------------------------------------------------------------------|
-| Gatekeeper             | [README](./MCTF25/Gatekeeper/Gatekeeper-README.md)                  |
-| Homemade task system   | [README](./MCTF25/Homemade%20task%20system/readme.md)               |
-| Homemade task system 2 | [README](./MCTF25/Homemade%20task%20system%202/readme.md)           |
-| Homemade task system 3 | [README](./MCTF25/Homemade%20task%20system%203/README.md)           |
-| Parent Security        | [README](./MCTF25/Parent%20Security/README.md)                      |
-| not!Windows registry   | [README](./MCTF25/not!Windows%20registry/README.md)                 |
+| Gatekeeper             | [README](./MCTF25/Gatekeeper/)                  |
+| Homemade task system   | [README](./MCTF25/Homemade%20task%20system/)               |
+| Homemade task system 2 | [README](./MCTF25/Homemade%20task%20system%202/)           |
+| Homemade task system 3 | [README](./MCTF25/Homemade%20task%20system%203/)           |
+| Parent Security        | [README](./MCTF25/Parent%20Security/)                      |
+| not!Windows registry   | [README](./MCTF25/not!Windows%20registry/)                 |
 
 ## About this site
 
