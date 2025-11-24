@@ -1,109 +1,143 @@
 # Mārtiņa-CTF 2025 (MCTF25)
 
 <style>
-.mctf-terminal {
-  max-width: 900px;
-  margin: 1.5rem 0 2rem 0;
-  border-radius: 10px;
-  border: 1px solid #1f2933;
-  background: radial-gradient(circle at top left, #020617, #020617, #020617);
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  color: #e5e7eb;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+:root {
+  color-scheme: dark;
+  --bg: #020617;
+  --bg-alt: #020617;
+  --card: #020617;
+  --border-subtle: #1f2937;
+  --border-strong: #374151;
+  --fg: #e5e7eb;
+  --fg-muted: #9ca3af;
+  --accent: #38bdf8;
+  --accent-soft: rgba(56, 189, 248, 0.18);
 }
 
-.mctf-terminal-header {
-  padding: 0.4rem 0.75rem;
-  border-bottom: 1px solid #111827;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 0.75rem;
-  background: linear-gradient(to right, #020617, #020617, #020617);
-}
-
-.mctf-terminal-header-left {
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #6b7280;
-}
-
-.mctf-terminal-header-right {
-  font-size: 0.7rem;
-  color: #4b5563;
-}
-
-.mctf-terminal-body {
-  padding: 1.3rem 1.6rem 1.2rem 1.6rem;
-  font-size: 0.85rem;
-  line-height: 1.5;
-}
-
-.mctf-terminal-body pre {
-  margin: 0.3rem 0;
-  white-space: pre-wrap;
-}
-
-.mctf-terminal-body code {
-  background: transparent;
+html, body {
+  margin: 0;
   padding: 0;
+  background: radial-gradient(circle at top left, #020617, #020617 40%, #020617 100%);
+  color: var(--fg);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
 }
 
-.mctf-prompt {
-  color: #22c55e;
+/* GitHub / Jekyll wrappers (best-effort overrides) */
+.page-content, .wrapper, article {
+  background: transparent !important;
 }
 
-.mctf-path {
-  color: #38bdf8;
+/* Layout */
+
+.mctf-page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2.2rem 1.5rem 4rem;
 }
 
-.mctf-tag {
-  color: #a855f7;
+.mctf-hero {
+  border-radius: 0.9rem;
+  border: 1px solid var(--border-subtle);
+  background: radial-gradient(circle at top left, #020617 0, #020617 55%, #020617 100%);
+  padding: 1.6rem 2rem 1.4rem;
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.65);
 }
 
-.mctf-comment {
-  color: #6b7280;
+.mctf-hero-title {
+  font-size: 1.45rem;
+  letter-spacing: 0.03em;
+  margin: 0 0 0.35rem;
 }
 
-.mctf-title {
+.mctf-hero-subtitle {
+  font-size: 0.9rem;
+  color: var(--fg-muted);
+  margin-bottom: 1rem;
+}
+
+.mctf-hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--fg-muted);
+}
+
+.mctf-pill {
+  border-radius: 999px;
+  padding: 0.25rem 0.7rem;
+  border: 1px solid var(--border-subtle);
+  background: linear-gradient(to right, rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.25));
+}
+
+.mctf-section {
+  margin-top: 2.2rem;
+}
+
+.mctf-section h2 {
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  margin-bottom: 0.8rem;
+}
+
+.mctf-section h3 {
   font-size: 0.95rem;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.35rem;
 }
 
-.mctf-sub {
+.mctf-small {
   font-size: 0.8rem;
-  color: #9ca3af;
+  color: var(--fg-muted);
+}
+
+/* Lists */
+
+.mctf-cat-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.2rem 0 0.6rem;
+}
+
+.mctf-cat-list li {
+  margin: 0.15rem 0;
+}
+
+/* Links */
+
+a {
+  color: var(--accent);
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* Code / pre */
+
+code, pre {
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 </style>
 
-<div class="mctf-terminal">
-  <div class="mctf-terminal-header">
-    <div class="mctf-terminal-header-left">SESSION MCTF25</div>
-    <div class="mctf-terminal-header-right">ctf@anormalstick:/MCTF25</div>
-  </div>
-  <div class="mctf-terminal-body">
-    <div class="mctf-title">Mārtiņa-CTF 2025 — writeups</div>
-    <div class="mctf-sub">Blockchain, web, forensics, misc and more.</div>
+<div class="mctf-page">
 
-    <pre><code><span class="mctf-comment"># enumerate solved challenges</span>
-<span class="mctf-prompt">$</span> tree -L 1 .
-<span class="mctf-tag">.</span>
-├── Audio_Web
-├── Blockchain
-├── Blockchain_Forensics
-├── Crypto
-├── Forensics
-├── Misc_Fun
-├── Pwn_Docker
-└── Web</code></pre>
-  </div>
-</div>
+  <section class="mctf-hero">
+    <div class="mctf-hero-title">MCTF25 — Mārtiņa-CTF 2025</div>
+    <div class="mctf-hero-subtitle">
+      Personal writeups for Mārtiņa-CTF 2025. Mostly focused on blockchain and web, with some forensics and misc.
+    </div>
 
-Writeups and notes for **Mārtiņa-CTF 2025**, organized by category.
+    <div class="mctf-hero-meta">
+      <div class="mctf-pill">First CTF</div>
+      <div class="mctf-pill">Writeups per challenge</div>
+      <div class="mctf-pill">Tech stack: Python · Solidity · Web</div>
+    </div>
+  </section>
 
----
-
-## Navigation
+  <section class="mctf-section">
+    <h2>Navigation</h2>
 
 - [Audio / Web](#audio--web)
 - [Blockchain](#blockchain)
@@ -114,100 +148,101 @@ Writeups and notes for **Mārtiņa-CTF 2025**, organized by category.
 - [Pwn / Docker](#pwn--docker)
 - [Web](#web)
 
----
+  </section>
 
-<details open>
-<summary><strong>Audio / Web</strong></summary>
+  <section class="mctf-section" id="audio--web">
+    <h2>Audio / Web</h2>
 
-- **Astral Pulses** → [writeup](./Astral%20Pulses/README.md)  
-- **AI Translator** → [writeup](./AI%20Translator/README.md)
+<ul class="mctf-cat-list">
+  <li><strong>Astral Pulses</strong> → <a href="./Astral%20Pulses/README.md">writeup</a></li>
+  <li><strong>AI Translator</strong> → <a href="./AI%20Translator/README.md">writeup</a></li>
+</ul>
+  </section>
 
-</details>
+  <section class="mctf-section" id="blockchain">
+    <h2>Blockchain</h2>
 
----
+<ul class="mctf-cat-list">
+  <li><strong>Guess The Number</strong> → <a href="./%5BBlockchain%203%5D%20Guess%20The%20Number/README_Blockchain3_GuessTheNumber.md">writeup</a></li>
+  <li><strong>Magical RPC Button</strong> → <a href="./%5BBlockchain%201%5D%20Magical%20RPC%20Button/README_Blockchain1_MagicalRPCButton.md">writeup</a></li>
+  <li><strong>Unlimited Void</strong> → <a href="./Unlimited%20Void/Unlimited_Void_README.md">writeup</a></li>
+  <li><strong>Where Did I Leave My Flag</strong> → <a href="./%5BBlockchain%202%5D%20Where%20Did%20I%20Leave%20My%20Flag/README_Blockchain2_WhereDidILeaveMyFlag.md">writeup</a></li>
+</ul>
+  </section>
 
-<details open>
-<summary><strong>Blockchain</strong></summary>
+  <section class="mctf-section" id="blockchain--forensics">
+    <h2>Blockchain / Forensics</h2>
 
-- **Guess The Number** → [writeup](./%5BBlockchain%203%5D%20Guess%20The%20Number/README_Blockchain3_GuessTheNumber.md)  
-- **Magical RPC Button** → [writeup](./%5BBlockchain%201%5D%20Magical%20RPC%20Button/README_Blockchain1_MagicalRPCButton.md)  
-- **Unlimited Void** → [writeup](./Unlimited%20Void/Unlimited_Void_README.md)  
-- **Where Did I Leave My Flag** → [writeup](./%5BBlockchain%202%5D%20Where%20Did%20I%20Leave%20My%20Flag/README_Blockchain2_WhereDidILeaveMyFlag.md)
+<ul class="mctf-cat-list">
+  <li><strong>Titanium Safe</strong> → <a href="./Titanium%20Safe/">writeup</a></li>
+  <li><strong>Sacred Martins Sequence</strong> → <a href="./%5BBlockchain%204%5D%20Sacred%20Martins%20Sequence/readme.md">writeup</a></li>
+  <li><strong>Sepolia Heist</strong> → <a href="./Sepolia%20Heist/readme.md">writeup</a></li>
+</ul>
+  </section>
 
-</details>
+  <section class="mctf-section" id="crypto">
+    <h2>Crypto</h2>
 
----
+<ul class="mctf-cat-list">
+  <li><strong>Radical Security Animal</strong> → <a href="./%5BCryptography%204%5D%20Radical%20Security%20Animal/README_crypto4.md">writeup</a></li>
+</ul>
+  </section>
 
-<details open>
-<summary><strong>Blockchain / Forensics</strong></summary>
+  <section class="mctf-section" id="forensics">
+    <h2>Forensics</h2>
 
-- **Titanium Safe** → [writeup](./Titanium%20Safe/)  
-- **Sacred Martins Sequence** → [writeup](./%5BBlockchain%204%5D%20Sacred%20Martins%20Sequence/readme.md)  
-- **Sepolia Heist** → [writeup](./Sepolia%20Heist/readme.md)
+<ul class="mctf-cat-list">
+  <li><strong>Rewritten History</strong> → <a href="./Rewritten%20History/README.md">writeup</a></li>
+</ul>
+  </section>
 
-</details>
+  <section class="mctf-section" id="misc--fun">
+    <h2>Misc / Fun</h2>
 
----
+<ul class="mctf-cat-list">
+  <li><strong>A series of tubes</strong> → <a href="./A%20series%20of%20tubes/readme.md">writeup</a></li>
+  <li><strong>Jokemartins</strong> → <a href="./Jokemartins/Readme.md">writeup</a></li>
+</ul>
+  </section>
 
-<details open>
-<summary><strong>Crypto</strong></summary>
+  <section class="mctf-section" id="pwn--docker">
+    <h2>Pwn / Docker</h2>
 
-- **Radical Security Animal** → [writeup](./%5BCryptography%204%5D%20Radical%20Security%20Animal/README_crypto4.md)
+<ul class="mctf-cat-list">
+  <li><strong>ImgSharer</strong> → <a href="./ImgSharer/README.md">writeup</a></li>
+  <li><strong>Docker, I barely know her!</strong> → <a href="./Docker,%20I%20barely%20know%20her!/README.md">writeup</a></li>
+</ul>
+  </section>
 
-</details>
+  <section class="mctf-section" id="web">
+    <h2>Web</h2>
 
----
+<ul class="mctf-cat-list">
+  <li><strong>Gatekeeper</strong> → <a href="./Gatekeeper/Gatekeeper-README.md">writeup</a></li>
+  <li><strong>Homemade task system</strong> → <a href="./Homemade%20task%20system/readme.md">writeup</a></li>
+  <li><strong>Homemade task system 2</strong> → <a href="./Homemade%20task%20system%202/readme.md">writeup</a></li>
+  <li><strong>Homemade task system 3</strong> → <a href="./Homemade%20task%20system%203/README.md">writeup</a></li>
+  <li><strong>not!Windows registry</strong> → <a href="./not!Windows%20registry/README.md">writeup</a></li>
+  <li><strong>Parent Security</strong> → <a href="./Parent%20Security/README.md">writeup</a></li>
+</ul>
+  </section>
 
-<details open>
-<summary><strong>Forensics</strong></summary>
+  <section class="mctf-section">
+    <h2>Notes</h2>
 
-- **Rewritten History** → [writeup](./Rewritten%20History/README.md)
+<div class="mctf-small">
+All writeups are done post-CTF with access to challenge files.  
+I try to keep:
+<ul>
+  <li>clear exploit paths,</li>
+  <li>minimal but precise code,</li>
+  <li>enough context to re-solve without guesswork.</li>
+</ul>
 
-</details>
+If you see a mistake or have a cleaner solve, open an issue or PR in  
+<a href="https://github.com/ANormalStick/CTF-Writeups">ANormalStick/CTF-Writeups</a>.
+</div>
 
----
+  </section>
 
-<details open>
-<summary><strong>Misc / Fun</strong></summary>
-
-- **A series of tubes** → [writeup](./A%20series%20of%20tubes/readme.md)  
-- **Jokemartins** → [writeup](./Jokemartins/Readme.md)
-
-</details>
-
----
-
-<details open>
-<summary><strong>Pwn / Docker</strong></summary>
-
-- **ImgSharer** → [writeup](./ImgSharer/README.md)  
-- **Docker, I barely know her!** → [writeup](./Docker,%20I%20barely%20know%20her!/README.md)
-
-</details>
-
----
-
-<details open>
-<summary><strong>Web</strong></summary>
-
-- **Gatekeeper** → [writeup](./Gatekeeper/Gatekeeper-README.md)  
-- **Homemade task system** → [writeup](./Homemade%20task%20system/readme.md)  
-- **Homemade task system 2** → [writeup](./Homemade%20task%20system%202/readme.md)  
-- **Homemade task system 3** → [writeup](./Homemade%20task%20system%203/README.md)  
-- **not!Windows registry** → [writeup](./not!Windows%20registry/README.md)  
-- **Parent Security** → [writeup](./Parent%20Security/README.md)
-
-</details>
-
----
-
-## Notes
-
-- All writeups are written post-CTF with access to challenge files.
-- Focus is on:
-  - clear exploit paths,
-  - minimal but precise code,
-  - enough context to re-solve without guessing.
-
-If you spot an error or have a cleaner solve, open an issue or PR in  
-[`ANormalStick/CTF-Writeups`](https://github.com/ANormalStick/CTF-Writeups).
+</div>
