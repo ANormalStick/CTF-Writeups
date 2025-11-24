@@ -159,7 +159,7 @@ html {
   position: relative;
 }
 
-/* fancy little bar under category headings */
+/* gradient bar under section headings */
 .post h3::after,
 .page-content h3::after,
 article h3::after {
@@ -176,81 +176,170 @@ article h3::after {
   animation: ctf-heading-glow 1.2s ease-out forwards;
 }
 
-/* Tables – compact cards + glowing buttons */
+/* CTF card list */
 
-table {
-  border-collapse: collapse;
-  width: 100%;
-  max-width: 520px;
-  font-size: 0.85rem;
-  margin: 0.6rem auto 1.4rem;
+.ctf-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin-bottom: 1.4rem;
+}
+
+.ctf-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1.2rem;
   border-radius: 0.9rem;
-  overflow: hidden;
-  background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.94));
-  border: 1px solid rgba(148, 163, 184, 0.2);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.99), rgba(15, 23, 42, 0.94));
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+  transition:
+    transform 0.18s ease-out,
+    box-shadow 0.18s ease-out,
+    border-color 0.18s ease-out;
 }
 
-thead {
-  background: linear-gradient(to right, rgba(15, 23, 42, 0.98), rgba(30, 64, 175, 0.85));
+.ctf-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(56, 189, 248, 0.7);
+  box-shadow: 0 22px 60px rgba(8, 47, 73, 0.8);
 }
 
-th,
-td {
-  padding: 0.55rem 0.9rem;
-  border-bottom: 1px solid var(--border-subtle);
-}
-
-th {
-  text-align: left;
-  font-weight: 500;
-  color: var(--fg-muted);
-  font-size: 0.78rem;
+.ctf-card-year {
+  font-size: 0.8rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.15em;
+  color: var(--fg-muted);
 }
 
-tbody td:first-child {
-  width: 100%;
+.ctf-card-main {
+  flex: 1 1 auto;
 }
 
-tbody td:last-child {
-  white-space: nowrap;
+.ctf-card-title {
+  font-size: 0.98rem;
+  font-weight: 500;
+}
+
+.ctf-card-meta {
+  font-size: 0.8rem;
+  color: var(--fg-muted);
+}
+
+/* Challenge lists (no tables!) */
+
+.challenge-list {
+  border-radius: 0.9rem;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.99), rgba(15, 23, 42, 0.94));
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6);
+  margin: 0.6rem 0 1.6rem;
+  overflow: hidden;
+}
+
+.challenge-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.55rem 1rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--fg-muted);
+  border-bottom: 1px solid var(--border-subtle);
+  background: linear-gradient(to right, rgba(15, 23, 42, 0.95), rgba(30, 64, 175, 0.85));
+}
+
+.challenge-list-header span:last-child {
   text-align: right;
 }
 
-tbody tr:nth-child(even) td {
-  background-color: rgba(15, 23, 42, 0.94);
-}
-
-tbody tr:nth-child(odd) td {
-  background-color: rgba(15, 23, 42, 0.98);
-}
-
-tbody tr:last-child td {
-  border-bottom: none;
-}
-
-tbody tr {
+.challenge-row {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.6rem 1rem;
+  border-top: 1px solid rgba(15, 23, 42, 1);
+  background: rgba(15, 23, 42, 0.98);
+  overflow: hidden;
   transition:
     background-color 0.16s ease-out,
     transform 0.12s ease-out,
     box-shadow 0.16s ease-out;
 }
 
-tbody tr:hover {
+.challenge-row:first-of-type {
+  border-top: none;
+}
+
+.challenge-row::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background: linear-gradient(
+    120deg,
+    rgba(56, 189, 248, 0.12),
+    transparent 40%,
+    transparent 60%,
+    rgba(168, 85, 247, 0.12)
+  );
+  pointer-events: none;
+  transition: opacity 0.18s ease-out;
+}
+
+.challenge-row:hover {
   transform: translateY(-1px);
   box-shadow: 0 14px 40px rgba(8, 47, 73, 0.7);
 }
 
-tbody tr:hover td {
-  background-color: rgba(15, 23, 42, 1);
-  box-shadow: inset 2px 0 0 var(--accent);
+.challenge-row:hover::before {
+  opacity: 1;
 }
 
-/* README button styling inside tables */
+.challenge-name {
+  font-size: 0.9rem;
+}
 
-td a {
+/* general tables (for other pages) – neutral dark */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.85rem;
+  margin: 0.8rem 0 1.2rem;
+  border-radius: 0.4rem;
+  overflow: hidden;
+}
+
+th,
+td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+  background-color: rgba(15, 23, 42, 0.9);
+}
+
+th {
+  text-align: left;
+  font-weight: 500;
+  color: var(--fg-muted);
+}
+
+tbody tr:nth-child(even) td {
+  background-color: rgba(15, 23, 42, 0.8);
+}
+
+/* README-style buttons */
+
+.challenge-actions {
+  flex: 0 0 auto;
+}
+
+.challenge-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -262,6 +351,9 @@ td a {
   border: 1px solid rgba(56, 189, 248, 0.7);
   background: radial-gradient(circle at top, rgba(56, 189, 248, 0.2), rgba(15, 23, 42, 0.9));
   box-shadow: 0 0 0 1px rgba(15, 23, 42, 1), 0 0 16px rgba(56, 189, 248, 0.18);
+  color: var(--accent);
+  text-decoration: none;
+  position: relative;
   transition:
     transform 0.14s ease-out,
     box-shadow 0.16s ease-out,
@@ -269,12 +361,12 @@ td a {
     background 0.16s ease-out;
 }
 
-/* kill underline animation inside tables */
-td a::after {
+/* kill underline animation on buttons */
+.challenge-btn::after {
   display: none !important;
 }
 
-td a:hover {
+.challenge-btn:hover {
   transform: translateY(-1px);
   border-color: rgba(56, 189, 248, 1);
   background: radial-gradient(circle at top, rgba(56, 189, 248, 0.35), rgba(15, 23, 42, 0.95));
@@ -283,7 +375,7 @@ td a:hover {
     0 0 24px rgba(56, 189, 248, 0.4);
 }
 
-/* Links – animated underline (outside tables) */
+/* Links – animated underline (normal links) */
 
 a {
   color: var(--accent);
@@ -335,9 +427,13 @@ code, pre {
     padding: 1.5rem 1.3rem 1.4rem;
   }
 
-  table {
-    max-width: 100%;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+  .ctf-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .challenge-row {
+    align-items: flex-start;
   }
 }
 
@@ -398,11 +494,18 @@ code, pre {
 
 ## CTFs
 
-This repository currently contains writeups for one event.
-
-| Year | CTF Name         | Alias  | Index                             |
-|------|------------------|--------|-----------------------------------|
-| 2025 | Mārtiņa-CTF 2025 | MCTF25 | [Browse MCTF25 writeups](./MCTF25/) |
+<div class="ctf-card-list">
+  <article class="ctf-card">
+    <div class="ctf-card-main">
+      <div class="ctf-card-year">2025 · MCTF25</div>
+      <div class="ctf-card-title">Mārtiņa-CTF 2025</div>
+      <div class="ctf-card-meta">First event · full writeups</div>
+    </div>
+    <div class="ctf-card-actions">
+      <a class="challenge-btn" href="./MCTF25/">Index</a>
+    </div>
+  </article>
+</div>
 
 ## MCTF25 — Category Overview
 
@@ -419,64 +522,201 @@ Quick navigation by category:
 
 ### Audio / Web
 
-| Challenge      | Writeup                             |
-|----------------|-------------------------------------|
-| Astral Pulses  | [README](./MCTF25/Astral%20Pulses/) |
-| AI Translator  | [README](./MCTF25/AI%20Translator/) |
+<div class="challenge-list">
+  <div class="challenge-list-header">
+    <span>Challenge</span>
+    <span>Writeup</span>
+  </div>
+  <div class="challenge-row">
+    <div class="challenge-name">Astral Pulses</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./MCTF25/Astral%20Pulses/">README</a>
+    </div>
+  </div>
+  <div class="challenge-row">
+    <div class="challenge-name">AI Translator</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./MCTF25/AI%20Translator/">README</a>
+    </div>
+  </div>
+</div>
 
 ### Blockchain
 
-| Challenge                 | Writeup                                                                 |
-|---------------------------|-------------------------------------------------------------------------|
-| Guess The Number          | [README](./MCTF25/%5BBlockchain%203%5D%20Guess%20The%20Number/)         |
-| Magical RPC Button        | [README](./MCTF25/%5BBlockchain%201%5D%20Magical%20RPC%20Button/)       |
-| Unlimited Void            | [README](./MCTF25/Unlimited%20Void/)                                    |
-| Where Did I Leave My Flag | [README](./MCTF25/%5BBlockchain%202%5D%20Where%20Did%20I%20Leave%20My%20Flag/) |
+<div class="challenge-list">
+  <div class="challenge-list-header">
+    <span>Challenge</span>
+    <span>Writeup</span>
+  </div>
+  <div class="challenge-row">
+    <div class="challenge-name">Guess The Number</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./MCTF25/%5BBlockchain%203%5D%20Guess%20The%20Number/">README</a>
+    </div>
+  </div>
+  <div class="challenge-row">
+    <div class="challenge-name">Magical RPC Button</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./MCTF25/%5BBlockchain%201%5D%20Magical%20RPC%20Button/">README</a>
+    </div>
+  </div>
+  <div class="challenge-row">
+    <div class="challenge-name">Unlimited Void</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./MCTF25/Unlimited%20Void/">README</a>
+    </div>
+  </div>
+  <div class="challenge-row">
+    <div class="challenge-name">Where Did I Leave My Flag</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./MCTF25/%5BBlockchain%202%5D%20Where%20Did%20I%20Leave%20My%20Flag/">README</a>
+    </div>
+  </div>
+</div>
 
 ### Blockchain / Forensics
 
-| Challenge               | Writeup                                                                 |
-|-------------------------|-------------------------------------------------------------------------|
-| Titanium Safe           | [README](./MCTF25/Titanium%20Safe/)                                     |
-| Sacred Martins Sequence | [README](./MCTF25/%5BBlockchain%204%5D%20Sacred%20Martins%20Sequence/)  |
-| Sepolia Heist           | [README](./MCTF25/Sepolia%20Heist/)                                     |
+<div class="challenge-list">
+  <div class="challenge-list-header">
+    <span>Challenge</span>
+    <span>Writeup</span>
+  </div>
+  <div class="challenge-row">
+    <div class="challenge-name">Titanium Safe</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./MCTF25/Titanium%20Safe/">README</a>
+    </div>
+  </div>
+  <div class="challenge-row">
+    <div class="challenge-name">Sacred Martins Sequence</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./MCTF25/%5BBlockchain%204%5D%20Sacred%20Martins%20Sequence/">README</a>
+    </div>
+  </div>
+  <div class="challenge-row">
+    <div class="challenge-name">Sepolia Heist</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./MCTF25/Sepolia%20Heist/">README</a>
+    </div>
+  </div>
+</div>
 
 ### Crypto
 
-| Challenge               | Writeup                                                                 |
-|-------------------------|-------------------------------------------------------------------------|
-| Radical Security Animal | [README](./MCTF25/%5BCryptography%204%5D%20Radical%20Security%20Animal/) |
+<div class="challenge-list">
+  <div class="challenge-list-header">
+    <span>Challenge</span>
+    <span>Writeup</span>
+  </div>
+  <div class="challenge-row">
+    <div class="challenge-name">Radical Security Animal</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./MCTF25/%5BCryptography%204%5D%20Radical%20Security%20Animal/">README</a>
+    </div>
+  </div>
+</div>
 
 ### Forensics
 
-| Challenge         | Writeup                                  |
-|-------------------|------------------------------------------|
-| Rewritten History | [README](./MCTF25/Rewritten%20History/)  |
+<div class="challenge-list">
+  <div class="challenge-list-header">
+    <span>Challenge</span>
+    <span>Writeup</span>
+  </div>
+  <div class="challenge-row">
+    <div class="challenge-name">Rewritten History</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./MCTF25/Rewritten%20History/">README</a>
+    </div>
+  </div>
+</div>
 
 ### Misc / Fun
 
-| Challenge         | Writeup                                      |
-|-------------------|----------------------------------------------|
-| A series of tubes | [README](./MCTF25/A%20series%20of%20tubes/)  |
-| Jokemartins       | [README](./MCTF25/Jokemartins/)              |
+<div class="challenge-list">
+  <div class="challenge-list-header">
+    <span>Challenge</span>
+    <span>Writeup</span>
+  </div>
+  <div class="challenge-row">
+    <div class="challenge-name">A series of tubes</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./MCTF25/A%20series%20of%20tubes/">README</a>
+    </div>
+  </div>
+  <div class="challenge-row">
+    <div class="challenge-name">Jokemartins</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./MCTF25/Jokemartins/">README</a>
+    </div>
+  </div>
+</div>
 
 ### Pwn / Docker
 
-| Challenge                  | Writeup                                        |
-|----------------------------|------------------------------------------------|
-| ImgSharer                  | [README](./MCTF25/ImgSharer/)                 |
-| Docker? I barely know her! | [README](./MCTF25/Docker,%20I%20barely%20know%20her!/) |
+<div class="challenge-list">
+  <div class="challenge-list-header">
+    <span>Challenge</span>
+    <span>Writeup</span>
+  </div>
+  <div class="challenge-row">
+    <div class="challenge-name">ImgSharer</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./MCTF25/ImgSharer/">README</a>
+    </div>
+  </div>
+  <div class="challenge-row">
+    <div class="challenge-name">Docker? I barely know her!</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./MCTF25/Docker,%20I%20barely%20know%20her!/">README</a>
+    </div>
+  </div>
+</div>
 
 ### Web
 
-| Challenge              | Writeup                                          |
-|------------------------|--------------------------------------------------|
-| Gatekeeper             | [README](./MCTF25/Gatekeeper/)                   |
-| Homemade task system   | [README](./MCTF25/Homemade%20task%20system/)     |
-| Homemade task system 2 | [README](./MCTF25/Homemade%20task%20system%202/) |
-| Homemade task system 3 | [README](./MCTF25/Homemade%20task%20system%203/) |
-| Parent Security        | [README](./MCTF25/Parent%20Security/)            |
-| not!Windows registry   | [README](./MCTF25/not!Windows%20registry/)       |
+<div class="challenge-list">
+  <div class="challenge-list-header">
+    <span>Challenge</span>
+    <span>Writeup</span>
+  </div>
+  <div class="challenge-row">
+    <div class="challenge-name">Gatekeeper</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./MCTF25/Gatekeeper/">README</a>
+    </div>
+  </div>
+  <div class="challenge-row">
+    <div class="challenge-name">Homemade task system</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./MCTF25/Homemade%20task%20system/">README</a>
+    </div>
+  </div>
+  <div class="challenge-row">
+    <div class="challenge-name">Homemade task system 2</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./MCTF25/Homemade%20task%20system%202/">README</a>
+    </div>
+  </div>
+  <div class="challenge-row">
+    <div class="challenge-name">Homemade task system 3</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./MCTF25/Homemade%20task%20system%203/">README</a>
+    </div>
+  </div>
+  <div class="challenge-row">
+    <div class="challenge-name">Parent Security</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./MCTF25/Parent%20Security/">README</a>
+    </div>
+  </div>
+  <div class="challenge-row">
+    <div class="challenge-name">not!Windows registry</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./MCTF25/not!Windows%20registry/">README</a>
+    </div>
+  </div>
+</div>
 
 ## About this site
 
