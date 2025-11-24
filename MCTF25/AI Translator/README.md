@@ -38,7 +38,7 @@ html, body {
   color: var(--fg-muted);
 }
 
-/* Tables (if you use them) */
+/* Tables (optional, if you use them) */
 table {
   border-collapse: collapse;
   width: 100%;
@@ -69,14 +69,41 @@ tbody tr:last-child td {
   border-bottom: none;
 }
 
-/* Links / code */
-a { color: var(--accent); }
-a:hover { text-decoration: none; }
+/* Links */
+a {
+  color: var(--accent);
+}
 
-code, pre {
+a:hover {
+  text-decoration: none;
+}
+
+/* Code blocks */
+pre,
+code,
+pre code,
+.highlight,
+.highlight pre,
+.highlight code {
+  background-color: rgba(15, 23, 42, 0.96) !important;
+  color: var(--fg);
+}
+
+pre {
+  border: 1px solid var(--border-subtle);
+  padding: 0.85rem 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+code {
+  padding: 0.1rem 0.25rem;
+  border-radius: 0.25rem;
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 </style>
+
 
 
 ## AI Translator
