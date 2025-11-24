@@ -34,9 +34,7 @@ Click a category to jump to its challenges.
 - [Crypto](#category-crypto)
 - [Forensics](#category-forensics)
 - [Misc / Fun](#category-misc-fun)
-- [Misc / Web / Docker](#category-misc-web-docker)
 - [Pwn / Docker](#category-pwn-docker)
-- [Uncategorized](#category-uncategorized)
 - [Web](#category-web)
 
 ---
@@ -45,6 +43,7 @@ Click a category to jump to its challenges.
 
 | Challenge | Path |
 |-----------|------|
+| Astral Pulses | [link](./MCTF25/Astral%20Pulses/README.md) |
 | AI Translator | [link](./MCTF25/AI%20Translator/README.md) |
 
 ### <a id="category-blockchain"></a>Blockchain
@@ -60,6 +59,8 @@ Click a category to jump to its challenges.
 
 | Challenge | Path |
 |-----------|------|
+| Titanium Safe | [link](./MCTF25/Titanium%20Safe/) |
+| Sacred Martins Sequence | [link](./MCTF25/%5BBlockchain%204%5D%20Sacred%20Martins%20Sequence/readme.md) |
 | Sepolia Heist | [link](./MCTF25/Sepolia%20Heist/readme.md) |
 
 ### <a id="category-crypto"></a>Crypto
@@ -78,31 +79,15 @@ Click a category to jump to its challenges.
 
 | Challenge | Path |
 |-----------|------|
+| A series of tubes | [link](./MCTF25/A%20series%20of%20tubes/readme.md) |
 | Jokemartins | [link](./MCTF25/Jokemartins/Readme.md) |
-
-### <a id="category-misc-web-docker"></a>Misc / Web / Docker
-
-| Challenge | Path |
-|-----------|------|
-| not!Windows registry | [link](./MCTF25/not!Windows%20registry/README.md) |
 
 ### <a id="category-pwn-docker"></a>Pwn / Docker
 
 | Challenge | Path |
 |-----------|------|
-| Docker, I barely know her! | [link](./MCTF25/Docker,%20I%20barely%20know%20her!/README.md) |
-
-### <a id="category-uncategorized"></a>Uncategorized
-
-| Challenge | Path |
-|-----------|------|
-| A series of tubes | [link](./MCTF25/A%20series%20of%20tubes/readme.md) |
-| Astral Pulses | [link](./MCTF25/Astral%20Pulses/README.md) |
-| Homemade task system | [link](./MCTF25/Homemade%20task%20system/readme.md) |
-| Homemade task system 2 | [link](./MCTF25/Homemade%20task%20system%202/readme.md) |
 | ImgSharer | [link](./MCTF25/ImgSharer/README.md) |
-| Sacred Martins Sequence | [link](./MCTF25/%5BBlockchain%204%5D%20Sacred%20Martins%20Sequence/readme.md) |
-| Titanium Safe | [link](./MCTF25/Titanium%20Safe/) |
+| Docker? I barely know her! | [link](./MCTF25/Docker,%20I%20barely%20know%20her!/README.md) |
 
 ### <a id="category-web"></a>Web
 
@@ -111,6 +96,9 @@ Click a category to jump to its challenges.
 | Gatekeeper | [link](./MCTF25/Gatekeeper/Gatekeeper-README.md) |
 | Homemade task system 3 | [link](./MCTF25/Homemade%20task%20system%203/README.md) |
 | Parent Security | [link](./MCTF25/Parent%20Security/README.md) |
+| Homemade task system | [link](./MCTF25/Homemade%20task%20system/readme.md) |
+| Homemade task system 2 | [link](./MCTF25/Homemade%20task%20system%202/readme.md) |
+| not!Windows registry | [link](./MCTF25/not!Windows%20registry/README.md) |
 
 ---
 
