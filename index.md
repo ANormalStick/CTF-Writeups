@@ -6,7 +6,6 @@ title: "Mārtiņa-CTF 2025 Writeups"
 :root {
   color-scheme: dark;
   --bg: #020617;
-  --bg-alt: #020617;
   --border-subtle: #1f2937;
   --fg: #e5e7eb;
   --fg-muted: #9ca3af;
@@ -90,25 +89,22 @@ html, body {
   margin-bottom: 0.3rem;
 }
 
-/* Tables */
+/* Tables – force dark cells */
 
 table {
   border-collapse: collapse;
   width: 100%;
   font-size: 0.85rem;
   margin: 0.4rem 0 0.8rem;
-  background: rgba(15, 23, 42, 0.7);
   border-radius: 0.6rem;
   overflow: hidden;
 }
 
-thead {
-  background: rgba(15, 23, 42, 0.9);
-}
-
-th, td {
+th,
+td {
   padding: 0.5rem 0.75rem;
   border-bottom: 1px solid var(--border-subtle);
+  background-color: rgba(15, 23, 42, 0.9); /* kill the white */
 }
 
 th {
@@ -117,12 +113,16 @@ th {
   color: var(--fg-muted);
 }
 
+tbody tr:nth-child(even) td {
+  background-color: rgba(15, 23, 42, 0.75);
+}
+
 tbody tr:last-child td {
   border-bottom: none;
 }
 
-tbody tr:nth-child(even) {
-  background: rgba(15, 23, 42, 0.6);
+tbody tr:hover td {
+  background-color: rgba(15, 23, 42, 0.98);
 }
 
 /* Links */
