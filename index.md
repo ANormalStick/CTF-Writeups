@@ -6,6 +6,7 @@ title: "Mārtiņa-CTF 2025 Writeups"
 :root {
   color-scheme: dark;
   --bg: #020617;
+  --bg-soft: #020617;
   --border-subtle: #1f2937;
   --fg: #e5e7eb;
   --fg-muted: #9ca3af;
@@ -16,9 +17,10 @@ title: "Mārtiņa-CTF 2025 Writeups"
 html, body {
   margin: 0;
   padding: 0;
-  background: radial-gradient(circle at top left, #020617, #020617 40%, #020617 100%);
+  background: radial-gradient(circle at top left, #0b1120 0, #020617 55%, #020617 100%);
   color: var(--fg);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+  line-height: 1.6;
 }
 
 /* GitHub Pages / Jekyll wrappers */
@@ -29,12 +31,17 @@ html, body {
   padding: 2.5rem 1.5rem 4rem;
 }
 
+/* Smooth anchor scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
 /* Hero */
 
 .ctf-hero {
   border-radius: 0.9rem;
   border: 1px solid var(--border-subtle);
-  background: radial-gradient(circle at top left, #020617 0, #020617 55%, #020617 100%);
+  background: radial-gradient(circle at top left, #020617 0, #020617 55%, #000 130%);
   padding: 1.8rem 2rem 1.6rem;
   box-shadow: 0 22px 55px rgba(0, 0, 0, 0.65);
   margin-bottom: 2.4rem;
@@ -43,6 +50,7 @@ html, body {
 .ctf-hero-title {
   font-size: 1.6rem;
   letter-spacing: 0.03em;
+  font-weight: 600;
   margin: 0 0 0.25rem;
 }
 
@@ -64,7 +72,8 @@ html, body {
   border-radius: 999px;
   padding: 0.25rem 0.7rem;
   border: 1px solid var(--border-subtle);
-  background: linear-gradient(to right, rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.2));
+  background: linear-gradient(to right, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.35));
+  white-space: nowrap;
 }
 
 .ctf-link-row {
@@ -74,9 +83,14 @@ html, body {
 
 /* Headings */
 
+.post h1, .page-content h1, article h1 {
+  font-size: 1.4rem;
+  margin: 0 0 0.8rem;
+}
+
 .post h2, .page-content h2, article h2 {
   font-size: 1.1rem;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--fg-muted);
   margin-top: 2.2rem;
@@ -135,6 +149,12 @@ a:hover {
   text-decoration: none;
 }
 
+/* Lists */
+
+ul {
+  padding-left: 1.2rem;
+}
+
 /* Misc */
 
 hr {
@@ -146,28 +166,46 @@ hr {
 code, pre {
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
+
+/* Small screens */
+
+@media (max-width: 640px) {
+  .page-content, .wrapper, article, .post {
+    padding: 1.8rem 1.1rem 3rem;
+  }
+
+  .ctf-hero {
+    padding: 1.5rem 1.3rem 1.4rem;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
 </style>
 
 <section class="ctf-hero">
   <div class="ctf-hero-title">ANormalStick / CTF Writeups</div>
   <div class="ctf-hero-subtitle">
-    Mārtiņa-CTF 2025 (MCTF25) — first CTF, documented challenge by challenge.
+    Mārtiņa-CTF 2025 (MCTF25) — my first CTF, documented challenge by challenge.
   </div>
 
   <div class="ctf-hero-meta">
     <div class="ctf-pill">CTF: Mārtiņa-CTF 2025</div>
     <div class="ctf-pill">Focus: blockchain · web · forensics · misc</div>
-    <div class="ctf-pill">Writeups: per challenge</div>
+    <div class="ctf-pill">Format: per-challenge writeups</div>
   </div>
 
   <div class="ctf-link-row">
-    Source: <a href="https://github.com/ANormalStick/CTF-Writeups">ANormalStick/CTF-Writeups</a>
+    Source:&nbsp;<a href="https://github.com/ANormalStick/CTF-Writeups">ANormalStick/CTF-Writeups</a>
   </div>
 </section>
 
 ## CTFs
 
-This repo currently contains writeups for one event.
+This repository currently contains writeups for one event.
 
 | Year | CTF Name         | Alias  | Index                             |
 |------|------------------|--------|-----------------------------------|
@@ -188,18 +226,18 @@ Quick navigation by category:
 
 ### Audio / Web
 
-| Challenge     | Writeup                                                   |
-|--------------|-----------------------------------------------------------|
-| Astral Pulses | [README](./MCTF25/Astral%20Pulses/)             |
-| AI Translator | [README](./MCTF25/AI%20Translator/)             |
+| Challenge      | Writeup                            |
+|----------------|------------------------------------|
+| Astral Pulses  | [README](./MCTF25/Astral%20Pulses/) |
+| AI Translator  | [README](./MCTF25/AI%20Translator/) |
 
 ### Blockchain
 
 | Challenge                 | Writeup                                                                 |
 |---------------------------|-------------------------------------------------------------------------|
-| Guess The Number          | [README](./MCTF25/%5BBlockchain%203%5D%20Guess%20The%20Number/) |
-| Magical RPC Button        | [README](./MCTF25/%5BBlockchain%201%5D%20Magical%20RPC%20Button/) |
-| Unlimited Void            | [README](./MCTF25/Unlimited%20Void/)           |
+| Guess The Number          | [README](./MCTF25/%5BBlockchain%203%5D%20Guess%20The%20Number/)         |
+| Magical RPC Button        | [README](./MCTF25/%5BBlockchain%201%5D%20Magical%20RPC%20Button/)       |
+| Unlimited Void            | [README](./MCTF25/Unlimited%20Void/)                                    |
 | Where Did I Leave My Flag | [README](./MCTF25/%5BBlockchain%202%5D%20Where%20Did%20I%20Leave%20My%20Flag/) |
 
 ### Blockchain / Forensics
@@ -207,8 +245,8 @@ Quick navigation by category:
 | Challenge               | Writeup                                                                 |
 |-------------------------|-------------------------------------------------------------------------|
 | Titanium Safe           | [README](./MCTF25/Titanium%20Safe/)                                     |
-| Sacred Martins Sequence | [README](./MCTF25/%5BBlockchain%204%5D%20Sacred%20Martins%20Sequence/) |
-| Sepolia Heist           | [README](./MCTF25/Sepolia%20Heist/)                           |
+| Sacred Martins Sequence | [README](./MCTF25/%5BBlockchain%204%5D%20Sacred%20Martins%20Sequence/)  |
+| Sepolia Heist           | [README](./MCTF25/Sepolia%20Heist/)                                     |
 
 ### Crypto
 
@@ -218,38 +256,38 @@ Quick navigation by category:
 
 ### Forensics
 
-| Challenge         | Writeup                                             |
-|-------------------|-----------------------------------------------------|
-| Rewritten History | [README](./MCTF25/Rewritten%20History/)    |
+| Challenge         | Writeup                                  |
+|-------------------|------------------------------------------|
+| Rewritten History | [README](./MCTF25/Rewritten%20History/)  |
 
 ### Misc / Fun
 
-| Challenge         | Writeup                                             |
-|-------------------|-----------------------------------------------------|
-| A series of tubes | [README](./MCTF25/A%20series%20of%20tubes/) |
-| Jokemartins       | [README](./MCTF25/Jokemartins/)            |
+| Challenge         | Writeup                                      |
+|-------------------|----------------------------------------------|
+| A series of tubes | [README](./MCTF25/A%20series%20of%20tubes/)  |
+| Jokemartins       | [README](./MCTF25/Jokemartins/)             |
 
 ### Pwn / Docker
 
-| Challenge                  | Writeup                                                              |
-|----------------------------|----------------------------------------------------------------------|
-| ImgSharer                  | [README](./MCTF25/ImgSharer/)                              |
-| Docker? I barely know her! | [README](./MCTF25/Docker,%20I%20barely%20know%20her!/)     |
+| Challenge                  | Writeup                                        |
+|----------------------------|------------------------------------------------|
+| ImgSharer                  | [README](./MCTF25/ImgSharer/)                 |
+| Docker? I barely know her! | [README](./MCTF25/Docker,%20I%20barely%20know%20her!/) |
 
 ### Web
 
-| Challenge              | Writeup                                                              |
-|------------------------|----------------------------------------------------------------------|
+| Challenge              | Writeup                                         |
+|------------------------|-------------------------------------------------|
 | Gatekeeper             | [README](./MCTF25/Gatekeeper/)                  |
-| Homemade task system   | [README](./MCTF25/Homemade%20task%20system/)               |
-| Homemade task system 2 | [README](./MCTF25/Homemade%20task%20system%202/)           |
-| Homemade task system 3 | [README](./MCTF25/Homemade%20task%20system%203/)           |
-| Parent Security        | [README](./MCTF25/Parent%20Security/)                      |
-| not!Windows registry   | [README](./MCTF25/not!Windows%20registry/)                 |
+| Homemade task system   | [README](./MCTF25/Homemade%20task%20system/)    |
+| Homemade task system 2 | [README](./MCTF25/Homemade%20task%20system%202/) |
+| Homemade task system 3 | [README](./MCTF25/Homemade%20task%20system%203/) |
+| Parent Security        | [README](./MCTF25/Parent%20Security/)           |
+| not!Windows registry   | [README](./MCTF25/not!Windows%20registry/)      |
 
 ## About this site
 
 This site is generated with **GitHub Pages** from  
 [`ANormalStick/CTF-Writeups`](https://github.com/ANormalStick/CTF-Writeups).
 
-MCTF25 is the first event; more CTFs will be added here over time.
+MCTF25 is the first event documented here. More CTFs (and more writeups) will be added over time.
