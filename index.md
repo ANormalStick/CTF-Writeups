@@ -6,7 +6,6 @@ title: "Mārtiņa-CTF 2025 Writeups"
 :root {
   color-scheme: dark;
   --bg: #020617;
-  --bg-soft: #020617;
   --border-subtle: #1f2937;
   --fg: #e5e7eb;
   --fg-muted: #9ca3af;
@@ -17,10 +16,14 @@ title: "Mārtiņa-CTF 2025 Writeups"
 html, body {
   margin: 0;
   padding: 0;
-  background: radial-gradient(circle at top left, #0b1120 0, #020617 55%, #020617 100%);
+  background: radial-gradient(circle at top left, #0b1120 0, #020617 55%, #000 120%);
   color: var(--fg);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
   line-height: 1.6;
+}
+
+body {
+  animation: ctf-fade-in 0.5s ease-out;
 }
 
 /* GitHub Pages / Jekyll wrappers */
@@ -39,25 +42,66 @@ html {
 /* Hero */
 
 .ctf-hero {
+  position: relative;
   border-radius: 0.9rem;
   border: 1px solid var(--border-subtle);
-  background: radial-gradient(circle at top left, #020617 0, #020617 55%, #000 130%);
+  background: radial-gradient(circle at top left, #020617 0, #020617 55%, #020617 100%);
   padding: 1.8rem 2rem 1.6rem;
   box-shadow: 0 22px 55px rgba(0, 0, 0, 0.65);
   margin-bottom: 2.4rem;
+  overflow: hidden;
+  transform: translateY(0);
+  transition:
+    transform 0.18s ease-out,
+    box-shadow 0.18s ease-out,
+    border-color 0.18s ease-out,
+    background 0.25s ease-out;
+}
+
+.ctf-hero::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: conic-gradient(
+    from 180deg,
+    rgba(56, 189, 248, 0.12),
+    rgba(129, 140, 248, 0.08),
+    rgba(45, 212, 191, 0.12),
+    rgba(56, 189, 248, 0.12)
+  );
+  opacity: 0;
+  transform: rotate(0deg);
+  animation: ctf-hero-orbit 18s linear infinite;
+  pointer-events: none;
+}
+
+.ctf-hero:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 26px 65px rgba(0, 0, 0, 0.85);
+  border-color: rgba(56, 189, 248, 0.6);
+  background: radial-gradient(circle at top left, #020617 0, #020617 40%, #020617 100%);
+}
+
+.ctf-hero:hover::before {
+  opacity: 1;
+}
+
+.ctf-hero > * {
+  position: relative;
+  z-index: 1;
 }
 
 .ctf-hero-title {
-  font-size: 1.6rem;
-  letter-spacing: 0.03em;
+  font-size: 1.7rem;
+  letter-spacing: 0.04em;
   font-weight: 600;
-  margin: 0 0 0.25rem;
+  margin: 0 0 0.35rem;
 }
 
 .ctf-hero-subtitle {
-  font-size: 0.95rem;
+  font-size: 0.97rem;
   color: var(--fg-muted);
-  margin-bottom: 1.3rem;
+  margin-bottom: 1.4rem;
 }
 
 .ctf-hero-meta {
@@ -72,8 +116,19 @@ html {
   border-radius: 999px;
   padding: 0.25rem 0.7rem;
   border: 1px solid var(--border-subtle);
-  background: linear-gradient(to right, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.35));
+  background: linear-gradient(to right, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.4));
   white-space: nowrap;
+  backdrop-filter: blur(6px);
+  transition:
+    border-color 0.18s ease-out,
+    background 0.18s ease-out,
+    transform 0.18s ease-out;
+}
+
+.ctf-pill:hover {
+  border-color: rgba(56, 189, 248, 0.7);
+  background: linear-gradient(to right, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.7));
+  transform: translateY(-1px);
 }
 
 .ctf-link-row {
@@ -89,7 +144,7 @@ html {
 }
 
 .post h2, .page-content h2, article h2 {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--fg-muted);
@@ -100,53 +155,92 @@ html {
 .post h3, .page-content h3, article h3 {
   font-size: 1rem;
   margin-top: 1.6rem;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.4rem;
 }
 
-/* Tables – force dark cells */
+/* Tables – dark, with hover accent */
 
 table {
   border-collapse: collapse;
   width: 100%;
   font-size: 0.85rem;
-  margin: 0.4rem 0 0.8rem;
+  margin: 0.4rem 0 0.9rem;
   border-radius: 0.6rem;
   overflow: hidden;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(15, 23, 42, 0.9);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.55);
+}
+
+thead {
+  background: linear-gradient(to right, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.95));
 }
 
 th,
 td {
-  padding: 0.5rem 0.75rem;
+  padding: 0.55rem 0.8rem;
   border-bottom: 1px solid var(--border-subtle);
-  background-color: rgba(15, 23, 42, 0.9); /* kill the white */
 }
 
 th {
   text-align: left;
   font-weight: 500;
   color: var(--fg-muted);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 tbody tr:nth-child(even) td {
-  background-color: rgba(15, 23, 42, 0.75);
+  background-color: rgba(15, 23, 42, 0.85);
+}
+
+tbody tr:nth-child(odd) td {
+  background-color: rgba(15, 23, 42, 0.95);
 }
 
 tbody tr:last-child td {
   border-bottom: none;
 }
 
-tbody tr:hover td {
-  background-color: rgba(15, 23, 42, 0.98);
+tbody tr {
+  transition:
+    background-color 0.16s ease-out,
+    transform 0.12s ease-out,
+    box-shadow 0.16s ease-out;
 }
 
-/* Links */
+tbody tr:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+tbody tr:hover td {
+  background-color: rgba(15, 23, 42, 0.98);
+  box-shadow: inset 2px 0 0 var(--accent);
+}
+
+/* Links – animated underline */
 
 a {
   color: var(--accent);
+  text-decoration: none;
+  position: relative;
 }
 
-a:hover {
-  text-decoration: none;
+a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.18s ease-out;
+}
+
+a:hover::after {
+  width: 100%;
 }
 
 /* Lists */
@@ -182,6 +276,28 @@ code, pre {
     display: block;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Animations */
+
+@keyframes ctf-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ctf-hero-orbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 </style>
@@ -226,8 +342,8 @@ Quick navigation by category:
 
 ### Audio / Web
 
-| Challenge      | Writeup                            |
-|----------------|------------------------------------|
+| Challenge      | Writeup                             |
+|----------------|-------------------------------------|
 | Astral Pulses  | [README](./MCTF25/Astral%20Pulses/) |
 | AI Translator  | [README](./MCTF25/AI%20Translator/) |
 
@@ -276,14 +392,14 @@ Quick navigation by category:
 
 ### Web
 
-| Challenge              | Writeup                                         |
-|------------------------|-------------------------------------------------|
-| Gatekeeper             | [README](./MCTF25/Gatekeeper/)                  |
-| Homemade task system   | [README](./MCTF25/Homemade%20task%20system/)    |
+| Challenge              | Writeup                                          |
+|------------------------|--------------------------------------------------|
+| Gatekeeper             | [README](./MCTF25/Gatekeeper/)                   |
+| Homemade task system   | [README](./MCTF25/Homemade%20task%20system/)     |
 | Homemade task system 2 | [README](./MCTF25/Homemade%20task%20system%202/) |
 | Homemade task system 3 | [README](./MCTF25/Homemade%20task%20system%203/) |
-| Parent Security        | [README](./MCTF25/Parent%20Security/)           |
-| not!Windows registry   | [README](./MCTF25/not!Windows%20registry/)      |
+| Parent Security        | [README](./MCTF25/Parent%20Security/)            |
+| not!Windows registry   | [README](./MCTF25/not!Windows%20registry/)       |
 
 ## About this site
 
