@@ -180,9 +180,10 @@ article h3::after {
 
 .ctf-card-list {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 0.9rem;
   margin-bottom: 1.4rem;
+  justify-content: center;
 }
 
 .ctf-card {
@@ -199,7 +200,10 @@ article h3::after {
     transform 0.18s ease-out,
     box-shadow 0.18s ease-out,
     border-color 0.18s ease-out;
+  flex: 1 1 280px;     /* allow cards to sit side by side */
+  max-width: 460px;    /* stops them from stretching too wide */
 }
+
 
 .ctf-card:hover {
   transform: translateY(-2px);
