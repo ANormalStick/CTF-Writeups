@@ -458,13 +458,13 @@ code, pre {
   <div class="challenge-row">
     <div class="challenge-name">Astral Pulses</div>
     <div class="challenge-actions">
-      <a class="challenge-btn" href="./Astral%20Pulses/README.md">README</a>
+      <a class="challenge-btn" href="./Astral%20Pulses/">README</a>
     </div>
   </div>
   <div class="challenge-row">
     <div class="challenge-name">AI Translator</div>
     <div class="challenge-actions">
-      <a class="challenge-btn" href="./AI%20Translator/README.md">README</a>
+      <a class="challenge-btn" href="./AI%20Translator/">README</a>
     </div>
   </div>
 </div>
@@ -479,25 +479,25 @@ code, pre {
   <div class="challenge-row">
     <div class="challenge-name">Guess The Number</div>
     <div class="challenge-actions">
-      <a class="challenge-btn" href="./%5BBlockchain%203%5D%20Guess%20The%20Number/README.md">README</a>
+      <a class="challenge-btn" href="./%5BBlockchain%203%5D%20Guess%20The%20Number/">README</a>
     </div>
   </div>
   <div class="challenge-row">
     <div class="challenge-name">Magical RPC Button</div>
     <div class="challenge-actions">
-      <a class="challenge-btn" href="./%5BBlockchain%201%5D%20Magical%20RPC%20Button/README.md">README</a>
+      <a class="challenge-btn" href="./%5BBlockchain%201%5D%20Magical%20RPC%20Button/">README</a>
     </div>
   </div>
   <div class="challenge-row">
     <div class="challenge-name">Unlimited Void</div>
     <div class="challenge-actions">
-      <a class="challenge-btn" href="./Unlimited%20Void/README.md">README</a>
+      <a class="challenge-btn" href="./Unlimited%20Void/">README</a>
     </div>
   </div>
   <div class="challenge-row">
     <div class="challenge-name">Where Did I Leave My Flag</div>
     <div class="challenge-actions">
-      <a class="challenge-btn" href="./%5BBlockchain%202%5D%20Where%20Did%20I%20Leave%20My%20Flag/README.md">README</a>
+      <a class="challenge-btn" href="./%5BBlockchain%202%5D%20Where%20Did%20I%20Leave%20My%20Flag/">README</a>
     </div>
   </div>
 </div>
@@ -512,19 +512,19 @@ code, pre {
   <div class="challenge-row">
     <div class="challenge-name">Titanium Safe</div>
     <div class="challenge-actions">
-      <a class="challenge-btn" href="./Titanium%20Safe/README.md">README</a>
+      <a class="challenge-btn" href="./Titanium%20Safe/">README</a>
     </div>
   </div>
   <div class="challenge-row">
     <div class="challenge-name">Sacred Martins Sequence</div>
     <div class="challenge-actions">
-      <a class="challenge-btn" href="./%5BBlockchain%204%5D%20Sacred%20Martins%20Sequence/README.md">README</a>
+      <a class="challenge-btn" href="./%5BBlockchain%204%5D%20Sacred%20Martins%20Sequence/">README</a>
     </div>
   </div>
   <div class="challenge-row">
     <div class="challenge-name">Sepolia Heist</div>
     <div class="challenge-actions">
-      <a class="challenge-btn" href="./Sepolia%20Heist/README.md">README</a>
+      <a class="challenge-btn" href="./Sepolia%20Heist/">README</a>
     </div>
   </div>
 </div>
@@ -539,7 +539,7 @@ code, pre {
   <div class="challenge-row">
     <div class="challenge-name">Radical Security Animal</div>
     <div class="challenge-actions">
-      <a class="challenge-btn" href="./%5BCryptography%204%5D%20Radical%20Security%20Animal/README.md">README</a>
+      <a class="challenge-btn" href="./%5BCryptography%204%5D%20Radical%20Security%20Animal/">README</a>
     </div>
   </div>
 </div>
@@ -554,7 +554,7 @@ code, pre {
   <div class="challenge-row">
     <div class="challenge-name">Rewritten History</div>
     <div class="challenge-actions">
-      <a class="challenge-btn" href="./Rewritten%20History/README.md">README</a>
+      <a class="challenge-btn" href="./Rewritten%20History/">README</a>
     </div>
   </div>
 </div>
@@ -569,13 +569,13 @@ code, pre {
   <div class="challenge-row">
     <div class="challenge-name">A series of tubes</div>
     <div class="challenge-actions">
-      <a class="challenge-btn" href="./A%20series%20of%20tubes/README.md">README</a>
+      <a class="challenge-btn" href="./A%20series%20of%20tubes/">README</a>
     </div>
   </div>
   <div class="challenge-row">
     <div class="challenge-name">Jokemartins</div>
     <div class="challenge-actions">
-      <a class="challenge-btn" href="./Jokemartins/README.md">README</a>
+      <a class="challenge-btn" href="./Jokemartins/">README</a>
     </div>
   </div>
 </div>
@@ -590,13 +590,13 @@ code, pre {
   <div class="challenge-row">
     <div class="challenge-name">ImgSharer</div>
     <div class="challenge-actions">
-      <a class="challenge-btn" href="./ImgSharer/README.md">README</a>
+      <a class="challenge-btn" href="./ImgSharer/">README</a>
     </div>
   </div>
   <div class="challenge-row">
     <div class="challenge-name">Docker, I barely know her!</div>
     <div class="challenge-actions">
-      <a class="challenge-btn" href="./Docker,%20I%20barely%20know%20her!/README.md">README</a>
+      <a class="challenge-btn" href="./Docker,%20I%20barely%20know%20her!/">README</a>
     </div>
   </div>
 </div>
@@ -611,37 +611,37 @@ code, pre {
   <div class="challenge-row">
     <div class="challenge-name">Gatekeeper</div>
     <div class="challenge-actions">
-      <a class="challenge-btn" href="./Gatekeeper/README.md">README</a>
+      <a class="challenge-btn" href="./Gatekeeper/">README</a>
     </div>
   </div>
   <div class="challenge-row">
     <div class="challenge-name">Homemade task system</div>
     <div class="challenge-actions">
-      <a class="challenge-btn" href="./Homemade%20task%20system/README.md">README</a>
+      <a class="challenge-btn" href="./Homemade%20task%20system/">README</a>
     </div>
   </div>
   <div class="challenge-row">
     <div class="challenge-name">Homemade task system 2</div>
     <div class="challenge-actions">
-      <a class="challenge-btn" href="./Homemade%20task%20system%202/README.md">README</a>
+      <a class="challenge-btn" href="./Homemade%20task%20system%202/">README</a>
     </div>
   </div>
   <div class="challenge-row">
     <div class="challenge-name">Homemade task system 3</div>
     <div class="challenge-actions">
-      <a class="challenge-btn" href="./Homemade%20task%20system%203/README.md">README</a>
+      <a class="challenge-btn" href="./Homemade%20task%20system%203/">README</a>
     </div>
   </div>
   <div class="challenge-row">
     <div class="challenge-name">not!Windows registry</div>
     <div class="challenge-actions">
-      <a class="challenge-btn" href="./not!Windows%20registry/README.md">README</a>
+      <a class="challenge-btn" href="./not!Windows%20registry/">README</a>
     </div>
   </div>
   <div class="challenge-row">
     <div class="challenge-name">Parent Security</div>
     <div class="challenge-actions">
-      <a class="challenge-btn" href="./Parent%20Security/README.md">README</a>
+      <a class="challenge-btn" href="./Parent%20Security/">README</a>
     </div>
   </div>
 </div>
