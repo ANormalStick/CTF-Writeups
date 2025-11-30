@@ -1,0 +1,171 @@
+# LSD#4 – Medium LSB Steganography
+
+Author: Thib  
+Category: Forensics / Steganography  
+Flag format: `Hero{...}`
+
+---
+
+## Challenge Description
+
+We’re given a trippy, colorful 1500×1500 PNG image and the following hints:
+
+- `LSD#4`
+- Difficulty: *medium*
+- “medium lsb steganography”
+- “The square measures **100×100** and starts at coordinates **1000:1000**”
+- Format: `^Hero{\S+}$`
+
+The task is to extract the hidden flag from the image using basic LSB steganography techniques.
+
+---
+
+## Intuition
+
+The description strongly hints at:
+
+- **LSB (Least Significant Bit) steganography**
+- The hidden data being confined to a **100×100** region starting at **(x=1000, y=1000)**.
+- No fancy tools needed – just basic image processing and bit manipulation.
+
+So the plan:
+
+1. Load the image.
+2. Crop the 100×100 region at (1000, 1000).
+3. Inspect the least significant bits of each color channel.
+4. Reassemble bits into bytes and check for readable ASCII.
+5. Extract the flag from the recovered message.
+
+---
+
+## Requirements
+
+- Python 3
+- Pillow (`pip install pillow`)
+- NumPy (`pip install numpy`)
+
+---
+
+## Usage
+
+1. Save the challenge image as `lsd4.png` in the same folder as the script.
+2. Run the script:
+
+   ```bash
+   python solve_lsd4.py
+   ```
+
+3. The script prints the hidden message and the flag.
+
+---
+
+## Solution Script (`solve_lsd4.py`)
+
+```python
+from PIL import Image
+import numpy as np
+
+IMAGE_PATH = "lsd4.png"
+
+def bits_to_bytes(bits):
+    out = bytearray()
+    # convert each group of 8 bits into a byte
+    for i in range(0, len(bits) - len(bits) % 8, 8):
+        b = 0
+        for j in range(8):
+            b = (b << 1) | bits[i + j]
+        out.append(b)
+    return bytes(out)
+
+def extract_lsb_region(image_path, x, y, size=100, channel_index=0, bit_index=0):
+    """
+    Extracts data from a square region of an image using LSB steganography.
+
+    - x, y: top-left coordinates of the square
+    - size: width/height of the square (square is size x size)
+    - channel_index: 0=R, 1=G, 2=B
+    - bit_index: which bit to extract (0 = least significant)
+    """
+    img = Image.open(image_path).convert("RGB")
+    crop = img.crop((x, y, x + size, y + size))
+    arr = np.array(crop)
+
+    # Select the color channel (R/G/B)
+    ch = arr[:, :, channel_index]
+
+    # Take the chosen bit plane
+    bits = ((ch >> bit_index) & 1).flatten().tolist()
+
+    # Turn bits into bytes
+    return bits_to_bytes(bits)
+
+if __name__ == "__main__":
+    # Given by the challenge
+    X, Y = 1000, 1000
+    SIZE = 100
+
+    # After testing, we know: red channel (0), bit 0 (LSB)
+    data = extract_lsb_region(IMAGE_PATH, X, Y, SIZE, channel_index=0, bit_index=0)
+
+    # Decode as ASCII; ignore any trailing garbage
+    message = data.decode("ascii", errors="ignore")
+    print("Recovered message:\n")
+    print(message)
+```
+
+---
+
+## Step-by-Step Explanation
+
+### 1. Cropping the Hidden Area
+
+The hint tells us where the hidden data lives:
+
+- top-left corner: (1000, 1000)
+- size: 100×100
+
+So we crop:
+
+```python
+crop = img.crop((1000, 1000, 1100, 1100))
+```
+
+### 2. Inspecting Bit Planes
+
+We suspect LSB stego, so we look at different combinations:
+
+- Channels: R, G, B → indices 0, 1, 2
+- Bits: bit 0 (LSB), bit 1, bit 2
+
+We try each combination, group bits into bytes, and see if the result looks like ASCII text.
+
+For the **red channel, bit 0**, we get a perfectly readable message:
+
+> Steganography is the practice of concealing information. It invo...
+
+All other combinations produce mostly `0xFF` / garbage.
+
+### 3. Reassembling the Message
+
+We flatten the 100×100 red-channel pixels, take their LSBs, and turn them into bytes:
+
+```python
+ch = arr[:, :, 0]               # red channel
+bits = ((ch >> 0) & 1).flatten()
+data = bits_to_bytes(bits)
+message = data.decode("ascii", "ignore")
+```
+
+The recovered message is a paragraph describing steganography and ends with:
+
+```text
+Here is your flag: Hero{M4YB3_TH3_L4ST_LSB?}
+```
+
+---
+
+## Flag
+
+```text
+Hero{M4YB3_TH3_L4ST_LSB?}
+```
