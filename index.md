@@ -1,5 +1,5 @@
 ---
-title: "Mārtiņa-CTF 2025 Writeups"
+title: "CTF Writeups"
 ---
 
 <style>
@@ -478,12 +478,12 @@ code, pre {
 <section class="ctf-hero">
   <div class="ctf-hero-title">ANormalStick / CTF Writeups</div>
   <div class="ctf-hero-subtitle">
-    Mārtiņa-CTF 2025 (MCTF25) — my first CTF, documented challenge by challenge.
+    Mārtiņa-CTF 2025 (MCTF25) and HeroCTF v7 — personal writeups, grouped by category.
   </div>
 
   <div class="ctf-hero-meta">
-    <div class="ctf-pill">CTF: Mārtiņa-CTF 2025</div>
-    <div class="ctf-pill">Focus: blockchain · web · forensics · misc</div>
+    <div class="ctf-pill">CTFs: MCTF25 · HeroCTF v7</div>
+    <div class="ctf-pill">Focus: blockchain · web · crypto · forensics · misc · system</div>
     <div class="ctf-pill">Format: per-challenge writeups</div>
   </div>
 
@@ -505,9 +505,20 @@ code, pre {
       <a class="challenge-btn" href="./MCTF25/">Index</a>
     </div>
   </article>
+
+  <article class="ctf-card">
+    <div class="ctf-card-main">
+      <div class="ctf-card-year">2025 · HeroCTF v7</div>
+      <div class="ctf-card-title">HeroCTF v7</div>
+      <div class="ctf-card-meta">Second event · selected writeups</div>
+    </div>
+    <div class="ctf-card-actions">
+      <a class="challenge-btn" href="./HeroCTF%20v7/">Index</a>
+    </div>
+  </article>
 </div>
 
-## MCTF25 — Category Overview
+## Overall Challenge Overview
 
 Quick navigation by category:
 
@@ -518,8 +529,11 @@ Quick navigation by category:
 - [Forensics](#forensics)
 - [Misc / Fun](#misc--fun)
 - [Pwn / Docker](#pwn--docker)
+- [Prog](#prog)
+- [System](#system)
 - [Web](#web)
 
+<a id="audio--web"></a>
 ### Audio / Web
 
 <div class="challenge-list">
@@ -541,6 +555,7 @@ Quick navigation by category:
   </div>
 </div>
 
+<a id="blockchain"></a>
 ### Blockchain
 
 <div class="challenge-list">
@@ -574,6 +589,7 @@ Quick navigation by category:
   </div>
 </div>
 
+<a id="blockchain--forensics"></a>
 ### Blockchain / Forensics
 
 <div class="challenge-list">
@@ -601,6 +617,7 @@ Quick navigation by category:
   </div>
 </div>
 
+<a id="crypto"></a>
 ### Crypto
 
 <div class="challenge-list">
@@ -614,8 +631,15 @@ Quick navigation by category:
       <a class="challenge-btn" href="./MCTF25/%5BCryptography%204%5D%20Radical%20Security%20Animal/">README</a>
     </div>
   </div>
+  <div class="challenge-row">
+    <div class="challenge-name">Andor</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./HeroCTF%20v7/Andor/README.md">README</a>
+    </div>
+  </div>
 </div>
 
+<a id="forensics"></a>
 ### Forensics
 
 <div class="challenge-list">
@@ -629,8 +653,21 @@ Quick navigation by category:
       <a class="challenge-btn" href="./MCTF25/Rewritten%20History/">README</a>
     </div>
   </div>
+  <div class="challenge-row">
+    <div class="challenge-name">Operation Pensieve Breach - 1</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./HeroCTF%20v7/Operation%20Pensieve%20Breach%20-%201/README.md">README</a>
+    </div>
+  </div>
+  <div class="challenge-row">
+    <div class="challenge-name">Operation Pensieve Breach - 2</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./HeroCTF%20v7/Operation%20Pensieve%20Breach%20-%202/README.md">README</a>
+    </div>
+  </div>
 </div>
 
+<a id="misc--fun"></a>
 ### Misc / Fun
 
 <div class="challenge-list">
@@ -650,8 +687,27 @@ Quick navigation by category:
       <a class="challenge-btn" href="./MCTF25/Jokemartins/">README</a>
     </div>
   </div>
+  <div class="challenge-row">
+    <div class="challenge-name">LSD#4</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./HeroCTF%20v7/LSD%234/README.md">README</a>
+    </div>
+  </div>
+  <div class="challenge-row">
+    <div class="challenge-name">Neverland</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./HeroCTF%20v7/Neverland/README.md">README</a>
+    </div>
+  </div>
+  <div class="challenge-row">
+    <div class="challenge-name">Bootloader</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./HeroCTF%20v7/Bootloader/README.md">README</a>
+    </div>
+  </div>
 </div>
 
+<a id="pwn--docker"></a>
 ### Pwn / Docker
 
 <div class="challenge-list">
@@ -673,6 +729,45 @@ Quick navigation by category:
   </div>
 </div>
 
+<a id="prog"></a>
+### Prog
+
+<div class="challenge-list">
+  <div class="challenge-list-header">
+    <span>Challenge</span>
+    <span>Writeup</span>
+  </div>
+  <div class="challenge-row">
+    <div class="challenge-name">PVE - Pirate Race #1</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./HeroCTF%20v7/PVE%20-%20Pirate%20Race%20%231/README.md">README</a>
+    </div>
+  </div>
+  <div class="challenge-row">
+    <div class="challenge-name">PVE - Pirate Race #2</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./HeroCTF%20v7/PVE%20-%20Pirate%20Race%20%232/README.md">README</a>
+    </div>
+  </div>
+</div>
+
+<a id="system"></a>
+### System
+
+<div class="challenge-list">
+  <div class="challenge-list-header">
+    <span>Challenge</span>
+    <span>Writeup</span>
+  </div>
+  <div class="challenge-row">
+    <div class="challenge-name">Middle Earth</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./HeroCTF%20v7/Middle%20Earth/README.md">README</a>
+    </div>
+  </div>
+</div>
+
+<a id="web"></a>
 ### Web
 
 <div class="challenge-list">
@@ -723,4 +818,5 @@ Quick navigation by category:
 This site is generated with **GitHub Pages** from  
 [`ANormalStick/CTF-Writeups`](https://github.com/ANormalStick/CTF-Writeups).
 
-MCTF25 is the first event documented here. More CTFs (and more writeups) will be added over time.
+MCTF25 was the first event documented here, followed by HeroCTF v7.  
+More CTFs (and more writeups) will be added over time.
