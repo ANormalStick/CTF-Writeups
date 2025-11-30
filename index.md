@@ -514,7 +514,7 @@ code, pre {
     <div class="ctf-card-main">
       <div class="ctf-card-year">2025 · HeroCTF v7</div>
       <div class="ctf-card-title">HeroCTF v7</div>
-      <div class="ctf-card-meta">Second event · selected writeups</div>
+      <div class="ctf-card-meta">Second event · full writeups</div>
     </div>
     <div class="ctf-card-actions">
       <a class="challenge-btn" href="./HeroCTF%20v7/">Index</a>
