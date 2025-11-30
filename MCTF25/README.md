@@ -423,7 +423,7 @@ code, pre {
 </style>
 
 <section class="mctf-hero">
-  <div class="mctf-hero-title">MCTF25 — Mārtiņa-CTF 2025</div>
+  <div class="mctf-hero-title">MCTF25 - Mārtiņa-CTF 2025</div>
   <div class="mctf-hero-subtitle">
     Personal writeups for Mārtiņa-CTF 2025. Mostly blockchain and web, with some forensics and misc.
   </div>
