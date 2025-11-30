@@ -482,7 +482,7 @@ code, pre {
 <section class="ctf-hero">
   <div class="ctf-hero-title">ANormalStick / CTF Writeups</div>
   <div class="ctf-hero-subtitle">
-    Mārtiņa-CTF 2025 (MCTF25) and HeroCTF v7 — personal writeups, grouped by category.
+    Mārtiņa-CTF 2025 (MCTF25) and HeroCTF v7 - personal writeups, grouped by category.
   </div>
 
   <div class="ctf-hero-meta">
