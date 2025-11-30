@@ -455,7 +455,7 @@ code, pre {
   <div class="challenge-row">
     <div class="challenge-name">Andor</div>
     <div class="challenge-actions">
-      <a class="challenge-btn" href="./Andor/README.md">README</a>
+      <a class="challenge-btn" href="./Andor/">README</a>
     </div>
   </div>
 </div>
@@ -470,13 +470,13 @@ code, pre {
   <div class="challenge-row">
     <div class="challenge-name">Operation Pensieve Breach - 1</div>
     <div class="challenge-actions">
-      <a class="challenge-btn" href="./Operation%20Pensieve%20Breach%20-%201/README.md">README</a>
+      <a class="challenge-btn" href="./Operation%20Pensieve%20Breach%20-%201/">README</a>
     </div>
   </div>
   <div class="challenge-row">
     <div class="challenge-name">Operation Pensieve Breach - 2</div>
     <div class="challenge-actions">
-      <a class="challenge-btn" href="./Operation%20Pensieve%20Breach%20-%202/README.md">README</a>
+      <a class="challenge-btn" href="./Operation%20Pensieve%20Breach%20-%202/">README</a>
     </div>
   </div>
 </div>
@@ -491,19 +491,19 @@ code, pre {
   <div class="challenge-row">
     <div class="challenge-name">LSD#4</div>
     <div class="challenge-actions">
-      <a class="challenge-btn" href="./LSD%234/README.md">README</a>
+      <a class="challenge-btn" href="./LSD%234/">README</a>
     </div>
   </div>
   <div class="challenge-row">
     <div class="challenge-name">Neverland</div>
     <div class="challenge-actions">
-      <a class="challenge-btn" href="./Neverland/README.md">README</a>
+      <a class="challenge-btn" href="./Neverland/">README</a>
     </div>
   </div>
   <div class="challenge-row">
     <div class="challenge-name">Bootloader</div>
     <div class="challenge-actions">
-      <a class="challenge-btn" href="./Bootloader/README.md">README</a>
+      <a class="challenge-btn" href="./Bootloader/">README</a>
     </div>
   </div>
 </div>
@@ -518,13 +518,13 @@ code, pre {
   <div class="challenge-row">
     <div class="challenge-name">PVE - Pirate Race #1</div>
     <div class="challenge-actions">
-      <a class="challenge-btn" href="./PVE%20-%20Pirate%20Race%20%231/README.md">README</a>
+      <a class="challenge-btn" href="./PVE%20-%20Pirate%20Race%20%231/">README</a>
     </div>
   </div>
   <div class="challenge-row">
     <div class="challenge-name">PVE - Pirate Race #2</div>
     <div class="challenge-actions">
-      <a class="challenge-btn" href="./PVE%20-%20Pirate%20Race%20%232/README.md">README</a>
+      <a class="challenge-btn" href="./PVE%20-%20Pirate%20Race%20%232/">README</a>
     </div>
   </div>
 </div>
@@ -539,7 +539,7 @@ code, pre {
   <div class="challenge-row">
     <div class="challenge-name">Middle Earth</div>
     <div class="challenge-actions">
-      <a class="challenge-btn" href="./Middle%20Earth/README.md">README</a>
+      <a class="challenge-btn" href="./Middle%20Earth/">README</a>
     </div>
   </div>
 </div>
