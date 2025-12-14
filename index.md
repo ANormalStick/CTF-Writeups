@@ -482,12 +482,12 @@ code, pre {
 <section class="ctf-hero">
   <div class="ctf-hero-title">ANormalStick / CTF Writeups</div>
   <div class="ctf-hero-subtitle">
-    Mārtiņa-CTF 2025 (MCTF25) and HeroCTF v7 - personal writeups, grouped by category.
+    Mārtiņa-CTF 2025 (MCTF25), HeroCTF v7, and NexHunt CTF - personal writeups, grouped by category.
   </div>
 
   <div class="ctf-hero-meta">
-    <div class="ctf-pill">CTFs: MCTF25 · HeroCTF v7</div>
-    <div class="ctf-pill">Focus: blockchain · web · crypto · forensics · misc · system</div>
+    <div class="ctf-pill">CTFs: MCTF25 · HeroCTF v7 · NexHunt CTF</div>
+    <div class="ctf-pill">Focus: blockchain · web · crypto · forensics · misc · system · OSINT · RE</div>
     <div class="ctf-pill">Format: per-challenge writeups</div>
   </div>
 
@@ -520,6 +520,17 @@ code, pre {
       <a class="challenge-btn" href="./HeroCTF%20v7/">Index</a>
     </div>
   </article>
+
+  <article class="ctf-card">
+    <div class="ctf-card-main">
+      <div class="ctf-card-year">2025 · NexHunt CTF</div>
+      <div class="ctf-card-title">NexHunt CTF</div>
+      <div class="ctf-card-meta">Third event · full writeups</div>
+    </div>
+    <div class="ctf-card-actions">
+      <a class="challenge-btn" href="./NexHunt%20CTF/">Index</a>
+    </div>
+  </article>
 </div>
 
 ## Overall Challenge Overview
@@ -532,8 +543,10 @@ Quick navigation by category:
 - [Crypto](#crypto)
 - [Forensics](#forensics)
 - [Misc / Fun](#misc--fun)
+- [OSINT](#osint)
 - [Pwn / Docker](#pwn--docker)
 - [Prog](#prog)
+- [Reverse Engineering](#reverse-engineering)
 - [System](#system)
 - [Web](#web)
 
@@ -589,6 +602,12 @@ Quick navigation by category:
     <div class="challenge-name">Where Did I Leave My Flag</div>
     <div class="challenge-actions">
       <a class="challenge-btn" href="./MCTF25/%5BBlockchain%202%5D%20Where%20Did%20I%20Leave%20My%20Flag/">README</a>
+    </div>
+  </div>
+  <div class="challenge-row">
+    <div class="challenge-name">RustRoll</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./NexHunt%20CTF/RustRoll/">README</a>
     </div>
   </div>
 </div>
@@ -709,6 +728,34 @@ Quick navigation by category:
       <a class="challenge-btn" href="./HeroCTF%20v7/Bootloader/">README</a>
     </div>
   </div>
+  <div class="challenge-row">
+    <div class="challenge-name">the-scribe</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./NexHunt%20CTF/the-scribe/">README</a>
+    </div>
+  </div>
+  <div class="challenge-row">
+    <div class="challenge-name">Sōkyoku</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./NexHunt%20CTF/S%C5%8Dkyoku/">README</a>
+    </div>
+  </div>
+</div>
+
+<a id="osint"></a>
+### OSINT
+
+<div class="challenge-list">
+  <div class="challenge-list-header">
+    <span>Challenge</span>
+    <span>Writeup</span>
+  </div>
+  <div class="challenge-row">
+    <div class="challenge-name">A Lone Love</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./NexHunt%20CTF/A%20Lone%20Love/">README</a>
+    </div>
+  </div>
 </div>
 
 <a id="pwn--docker"></a>
@@ -751,6 +798,22 @@ Quick navigation by category:
     <div class="challenge-name">PVE - Pirate Race #2</div>
     <div class="challenge-actions">
       <a class="challenge-btn" href="./HeroCTF%20v7/PVE%20-%20Pirate%20Race%20%232/">README</a>
+    </div>
+  </div>
+</div>
+
+<a id="reverse-engineering"></a>
+### Reverse Engineering
+
+<div class="challenge-list">
+  <div class="challenge-list-header">
+    <span>Challenge</span>
+    <span>Writeup</span>
+  </div>
+  <div class="challenge-row">
+    <div class="challenge-name">HuntMe1</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./NexHunt%20CTF/HuntMe1/">README</a>
     </div>
   </div>
 </div>
@@ -815,6 +878,12 @@ Quick navigation by category:
       <a class="challenge-btn" href="./MCTF25/not!Windows%20registry/">README</a>
     </div>
   </div>
+  <div class="challenge-row">
+    <div class="challenge-name">Dz-Kitab</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./NexHunt%20CTF/Dz-Kitab/">README</a>
+    </div>
+  </div>
 </div>
 
 ## About this site
@@ -822,5 +891,5 @@ Quick navigation by category:
 This site is generated with **GitHub Pages** from  
 [`ANormalStick/CTF-Writeups`](https://github.com/ANormalStick/CTF-Writeups).
 
-MCTF25 was the first event documented here, followed by HeroCTF v7.  
+MCTF25 was the first event documented here, followed by HeroCTF v7 and NexHunt CTF.  
 More CTFs (and more writeups) will be added over time.
