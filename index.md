@@ -482,11 +482,11 @@ code, pre {
 <section class="ctf-hero">
   <div class="ctf-hero-title">ANormalStick / CTF Writeups</div>
   <div class="ctf-hero-subtitle">
-    Mārtiņa-CTF 2025 (MCTF25), HeroCTF v7, NexHunt CTF, and BSides Algiers 2025 - personal writeups, grouped by category.
+    Mārtiņa-CTF 2025 (MCTF25), HeroCTF v7, NexHunt CTF, BSides Algiers 2025, and MetaCTF December 2025 Flash CTF - personal writeups, grouped by category.
   </div>
 
   <div class="ctf-hero-meta">
-    <div class="ctf-pill">CTFs: MCTF25 · HeroCTF v7 · NexHunt CTF · BSides Algiers 2025</div>
+    <div class="ctf-pill">CTFs: MCTF25 · HeroCTF v7 · NexHunt CTF · BSides Algiers 2025 · MetaCTF</div>
     <div class="ctf-pill">Focus: blockchain · web · crypto · forensics · misc · system · OSINT · RE</div>
     <div class="ctf-pill">Format: per-challenge writeups</div>
   </div>
@@ -503,7 +503,7 @@ code, pre {
     <div class="ctf-card-main">
       <div class="ctf-card-year">2025 · MCTF25</div>
       <div class="ctf-card-title">Mārtiņa-CTF 2025</div>
-      <div class="ctf-card-meta">First event · full writeups</div>
+      <div class="ctf-card-meta">Team: Dikti cool ctf komanda · 8th place</div>
     </div>
     <div class="ctf-card-actions">
       <a class="challenge-btn" href="./MCTF25/">Index</a>
@@ -514,7 +514,7 @@ code, pre {
     <div class="ctf-card-main">
       <div class="ctf-card-year">2025 · HeroCTF v7</div>
       <div class="ctf-card-title">HeroCTF v7</div>
-      <div class="ctf-card-meta">Second event · full writeups</div>
+      <div class="ctf-card-meta">Team: ByteC4Ts · 30th place</div>
     </div>
     <div class="ctf-card-actions">
       <a class="challenge-btn" href="./HeroCTF%20v7/">Index</a>
@@ -525,7 +525,7 @@ code, pre {
     <div class="ctf-card-main">
       <div class="ctf-card-year">2025 · NexHunt CTF</div>
       <div class="ctf-card-title">NexHunt CTF</div>
-      <div class="ctf-card-meta">Third event · full writeups</div>
+      <div class="ctf-card-meta">Team: THEM?! · 4th place</div>
     </div>
     <div class="ctf-card-actions">
       <a class="challenge-btn" href="./NexHunt%20CTF/">Index</a>
@@ -536,10 +536,21 @@ code, pre {
     <div class="ctf-card-main">
       <div class="ctf-card-year">2025 · BSides Algiers</div>
       <div class="ctf-card-title">BSides Algiers 2025</div>
-      <div class="ctf-card-meta">Fourth event · full writeups</div>
+      <div class="ctf-card-meta">Team: 0xFun · scoreboard frozen</div>
     </div>
     <div class="ctf-card-actions">
       <a class="challenge-btn" href="./BSides%20Algiers%202025/">Index</a>
+    </div>
+  </article>
+
+  <article class="ctf-card">
+    <div class="ctf-card-main">
+      <div class="ctf-card-year">2025 · MetaCTF</div>
+      <div class="ctf-card-title">MetaCTF December 2025 Flash CTF</div>
+      <div class="ctf-card-meta">Solo · 🥉 3rd place</div>
+    </div>
+    <div class="ctf-card-actions">
+      <a class="challenge-btn" href="./MetaCTF%20December%202025%20Flash%20CTF/">Index</a>
     </div>
   </article>
 </div>
@@ -717,6 +728,12 @@ Quick navigation by category:
       <a class="challenge-btn" href="./HeroCTF%20v7/Operation%20Pensieve%20Breach%20-%202/">README</a>
     </div>
   </div>
+  <div class="challenge-row">
+    <div class="challenge-name">Making The Naughty List</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./MetaCTF%20December%202025%20Flash%20CTF/MakingTheNaughtyList/">README</a>
+    </div>
+  </div>
 </div>
 
 <a id="misc--fun"></a>
@@ -767,6 +784,18 @@ Quick navigation by category:
     <div class="challenge-name">Sōkyoku</div>
     <div class="challenge-actions">
       <a class="challenge-btn" href="./NexHunt%20CTF/S%C5%8Dkyoku/">README</a>
+    </div>
+  </div>
+  <div class="challenge-row">
+    <div class="challenge-name">Perl Poetry</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./MetaCTF%20December%202025%20Flash%20CTF/PerlPoetry/">README</a>
+    </div>
+  </div>
+  <div class="challenge-row">
+    <div class="challenge-name">Santa's Christmas Calculator</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./MetaCTF%20December%202025%20Flash%20CTF/SantasChristmasCalculator/">README</a>
     </div>
   </div>
 </div>
@@ -913,6 +942,12 @@ Quick navigation by category:
       <a class="challenge-btn" href="./NexHunt%20CTF/Dz-Kitab/">README</a>
     </div>
   </div>
+  <div class="challenge-row">
+    <div class="challenge-name">Gigs</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./MetaCTF%20December%202025%20Flash%20CTF/Gigs/">README</a>
+    </div>
+  </div>
 </div>
 
 ## About this site
@@ -920,5 +955,5 @@ Quick navigation by category:
 This site is generated with **GitHub Pages** from  
 [`ANormalStick/CTF-Writeups`](https://github.com/ANormalStick/CTF-Writeups).
 
-MCTF25 was the first event documented here, followed by HeroCTF v7, NexHunt CTF, and BSides Algiers 2025.  
+MCTF25 was the first event documented here, followed by HeroCTF v7, NexHunt CTF, BSides Algiers 2025, and MetaCTF December 2025 Flash CTF.  
 More CTFs (and more writeups) will be added over time.
