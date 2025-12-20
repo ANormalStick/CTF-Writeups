@@ -482,11 +482,11 @@ code, pre {
 <section class="ctf-hero">
   <div class="ctf-hero-title">ANormalStick / CTF Writeups</div>
   <div class="ctf-hero-subtitle">
-    Mārtiņa-CTF 2025 (MCTF25), HeroCTF v7, and NexHunt CTF - personal writeups, grouped by category.
+    Mārtiņa-CTF 2025 (MCTF25), HeroCTF v7, NexHunt CTF, and BSides Algiers 2025 - personal writeups, grouped by category.
   </div>
 
   <div class="ctf-hero-meta">
-    <div class="ctf-pill">CTFs: MCTF25 · HeroCTF v7 · NexHunt CTF</div>
+    <div class="ctf-pill">CTFs: MCTF25 · HeroCTF v7 · NexHunt CTF · BSides Algiers 2025</div>
     <div class="ctf-pill">Focus: blockchain · web · crypto · forensics · misc · system · OSINT · RE</div>
     <div class="ctf-pill">Format: per-challenge writeups</div>
   </div>
@@ -529,6 +529,17 @@ code, pre {
     </div>
     <div class="ctf-card-actions">
       <a class="challenge-btn" href="./NexHunt%20CTF/">Index</a>
+    </div>
+  </article>
+
+  <article class="ctf-card">
+    <div class="ctf-card-main">
+      <div class="ctf-card-year">2025 · BSides Algiers</div>
+      <div class="ctf-card-title">BSides Algiers 2025</div>
+      <div class="ctf-card-meta">Fourth event · full writeups</div>
+    </div>
+    <div class="ctf-card-actions">
+      <a class="challenge-btn" href="./BSides%20Algiers%202025/">Index</a>
     </div>
   </article>
 </div>
@@ -610,6 +621,18 @@ Quick navigation by category:
       <a class="challenge-btn" href="./NexHunt%20CTF/RustRoll/">README</a>
     </div>
   </div>
+  <div class="challenge-row">
+    <div class="challenge-name">BSides Only-invited party</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./BSides%20Algiers%202025/BSides%20Only-invited%20party/">README</a>
+    </div>
+  </div>
+  <div class="challenge-row">
+    <div class="challenge-name">BSides Only-invited party REVENGE</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./BSides%20Algiers%202025/BSides%20Only-invited%20party%20REVENGE/">README</a>
+    </div>
+  </div>
 </div>
 
 <a id="blockchain--forensics"></a>
@@ -658,6 +681,12 @@ Quick navigation by category:
     <div class="challenge-name">Andor</div>
     <div class="challenge-actions">
       <a class="challenge-btn" href="./HeroCTF%20v7/Andor/">README</a>
+    </div>
+  </div>
+  <div class="challenge-row">
+    <div class="challenge-name">Genie</div>
+    <div class="challenge-actions">
+      <a class="challenge-btn" href="./BSides%20Algiers%202025/Genie/">README</a>
     </div>
   </div>
 </div>
@@ -891,5 +920,5 @@ Quick navigation by category:
 This site is generated with **GitHub Pages** from  
 [`ANormalStick/CTF-Writeups`](https://github.com/ANormalStick/CTF-Writeups).
 
-MCTF25 was the first event documented here, followed by HeroCTF v7 and NexHunt CTF.  
+MCTF25 was the first event documented here, followed by HeroCTF v7, NexHunt CTF, and BSides Algiers 2025.  
 More CTFs (and more writeups) will be added over time.
