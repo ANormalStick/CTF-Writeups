@@ -737,7 +737,7 @@ a:hover::after {
         <span class="project-tag">XOR</span>
       </div>
       <div class="project-actions">
-        <a class="project-btn" href="./ChallangesMadeByMe/MusicBoxV2/">Writeup</a>
+        <a class="project-btn" href="./ChallangesIMade/MusicBoxV2/">Writeup</a>
       </div>
     </article>
 
@@ -753,7 +753,7 @@ a:hover::after {
         <span class="project-tag">Web Exploitation</span>
       </div>
       <div class="project-actions">
-        <a class="project-btn" href="./ChallangesMadeByMe/NaughtyOrNice/">Writeup</a>
+        <a class="project-btn" href="./ChallangesIMade/NaughtyOrNice/">Writeup</a>
       </div>
     </article>
   </div>
