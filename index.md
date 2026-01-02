@@ -168,11 +168,28 @@ html {
   color: var(--accent);
 }
 
+.stat-number.gold-text {
+  background: linear-gradient(135deg, #ffd700, #ffec8b, #ffd700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
 .stat-label {
   font-size: 0.75rem;
   color: var(--fg-muted);
   text-transform: uppercase;
   letter-spacing: 0.1em;
+}
+
+/* Subtitle for name */
+.main-hero-subtitle {
+  font-size: 1rem;
+  color: var(--accent);
+  margin: -0.3rem 0 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
 }
 
 /* ===== NAVIGATION TABS ===== */
@@ -376,148 +393,168 @@ html {
   box-shadow: 0 4px 15px rgba(56, 189, 248, 0.25);
 }
 
-/* ===== CTF CARDS ===== */
+/* ===== CTF TIMELINE ===== */
 
-.ctf-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1.2rem;
-  margin-bottom: 2.5rem;
-}
-
-.ctf-card {
+.ctf-timeline {
   position: relative;
-  border-radius: 1rem;
-  border: 1px solid var(--border-subtle);
-  background: linear-gradient(145deg, var(--bg-card), rgba(30, 41, 59, 0.6));
-  padding: 1.5rem 1.6rem;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
-  transition: all 0.2s ease-out;
-  overflow: hidden;
+  margin-bottom: 3rem;
 }
 
-.ctf-card::before {
+.ctf-timeline::before {
   content: "";
   position: absolute;
+  left: 20px;
   top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
-  opacity: 0;
-  transition: opacity 0.2s ease-out;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--accent), var(--accent-secondary), var(--accent-tertiary));
+  border-radius: 2px;
 }
 
-.ctf-card:hover {
-  transform: translateY(-5px);
+.ctf-entry {
+  position: relative;
+  padding-left: 60px;
+  padding-bottom: 2rem;
+}
+
+.ctf-entry:last-child {
+  padding-bottom: 0;
+}
+
+.ctf-entry::before {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 6px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 3px solid var(--accent);
+  z-index: 1;
+}
+
+.ctf-entry.gold::before {
+  border-color: #ffd700;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+.ctf-entry.silver::before {
+  border-color: #c0c0c0;
+  box-shadow: 0 0 15px rgba(192, 192, 192, 0.4);
+}
+
+.ctf-entry.bronze::before {
+  border-color: #cd7f32;
+  box-shadow: 0 0 15px rgba(205, 127, 50, 0.4);
+}
+
+.ctf-entry-card {
+  background: linear-gradient(145deg, var(--bg-card), rgba(30, 41, 59, 0.7));
+  border: 1px solid var(--border-subtle);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all 0.2s ease-out;
+}
+
+.ctf-entry-card:hover {
+  transform: translateX(8px);
   border-color: rgba(56, 189, 248, 0.5);
-  box-shadow: 0 22px 50px rgba(8, 47, 73, 0.7);
+  box-shadow: 0 15px 40px rgba(8, 47, 73, 0.5);
 }
 
-.ctf-card:hover::before {
-  opacity: 1;
-}
-
-.ctf-card-header {
+.ctf-entry-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 0.8rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
-.ctf-card-year {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--fg-muted);
-  font-weight: 500;
-}
-
-.ctf-placement {
-  padding: 0.25rem 0.7rem;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
-
-.placement-gold {
-  background: linear-gradient(135deg, rgba(251, 191, 36, 0.4), rgba(251, 191, 36, 0.15));
-  color: #fcd34d;
-  border: 1px solid rgba(251, 191, 36, 0.5);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-.placement-silver {
-  background: linear-gradient(135deg, rgba(192, 192, 192, 0.4), rgba(192, 192, 192, 0.15));
-  color: #e5e5e5;
-  border: 1px solid rgba(192, 192, 192, 0.5);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-.placement-bronze {
-  background: linear-gradient(135deg, rgba(205, 127, 50, 0.4), rgba(205, 127, 50, 0.15));
-  color: #f5c27a;
-  border: 1px solid rgba(205, 127, 50, 0.5);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-.placement-top10 {
-  background: linear-gradient(135deg, rgba(34, 197, 94, 0.35), rgba(34, 197, 94, 0.12));
-  color: #4ade80;
-  border: 1px solid rgba(34, 197, 94, 0.4);
-}
-
-.ctf-card-title {
-  font-size: 1.15rem;
+.ctf-entry-title {
+  font-size: 1.25rem;
   font-weight: 600;
-  margin: 0 0 0.5rem;
+  margin: 0;
   color: var(--fg);
 }
 
-.ctf-card-team {
+.ctf-rank-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
   font-size: 0.85rem;
-  color: var(--fg-muted);
+  font-weight: 700;
+}
+
+.ctf-rank-badge.gold {
+  background: linear-gradient(135deg, #ffd700 0%, #ffec8b 50%, #ffd700 100%);
+  color: #1a1a1a;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+}
+
+.ctf-rank-badge.silver {
+  background: linear-gradient(135deg, #e8e8e8 0%, #c0c0c0 50%, #e8e8e8 100%);
+  color: #1a1a1a;
+  box-shadow: 0 4px 15px rgba(192, 192, 192, 0.4);
+}
+
+.ctf-rank-badge.bronze {
+  background: linear-gradient(135deg, #daa06d 0%, #cd7f32 50%, #daa06d 100%);
+  color: #1a1a1a;
+  box-shadow: 0 4px 15px rgba(205, 127, 50, 0.4);
+}
+
+.ctf-rank-badge.top10 {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.9), rgba(22, 163, 74, 0.9));
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+}
+
+.ctf-rank-badge.other {
+  background: rgba(56, 189, 248, 0.2);
+  color: var(--accent);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+}
+
+.ctf-entry-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
   margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: var(--fg-muted);
+}
+
+.ctf-meta-item {
   display: flex;
   align-items: center;
   gap: 0.4rem;
 }
 
-.ctf-card-team::before {
-  content: "👥";
-  font-size: 0.8rem;
-}
-
-.ctf-card-btn {
+.ctf-entry-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.5rem 1.2rem;
-  border-radius: 0.5rem;
-  font-size: 0.78rem;
+  gap: 0.5rem;
+  padding: 0.6rem 1.4rem;
+  border-radius: 0.6rem;
+  font-size: 0.85rem;
   font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  border: 1px solid rgba(56, 189, 248, 0.6);
-  background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(56, 189, 248, 0.05));
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(56, 189, 248, 0.05));
+  border: 1px solid rgba(56, 189, 248, 0.5);
   color: var(--accent);
   text-decoration: none;
   transition: all 0.15s ease-out;
 }
 
-.ctf-card-btn::before {
-  content: "📄";
-  font-size: 0.85rem;
-}
+.ctf-entry-link::after { display: none !important; }
 
-.ctf-card-btn::after { display: none !important; }
-
-.ctf-card-btn:hover {
-  background: linear-gradient(135deg, rgba(56, 189, 248, 0.3), rgba(56, 189, 248, 0.1));
-  border-color: var(--accent);
-  transform: translateX(3px);
-  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.2);
+.ctf-entry-link:hover {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.35), rgba(56, 189, 248, 0.1));
+  transform: translateX(5px);
+  box-shadow: 0 5px 20px rgba(56, 189, 248, 0.25);
 }
 
 /* ===== CHALLENGE LIST ===== */
@@ -711,9 +748,10 @@ a:hover::after {
 <!-- ===== MAIN HERO ===== -->
 
 <section class="main-hero">
-  <h1 class="main-hero-name">ANormalStick</h1>
+  <h1 class="main-hero-name">Janis Martins Ivans</h1>
+  <p class="main-hero-subtitle">aka ANormalStick</p>
   <p class="main-hero-tagline">
-    Latvian CTF player, challenge creator, and game developer. Member of <a href="https://ctftime.org/team/354033" style="color: var(--accent);">0xFUN</a> (Global Rank #41). Building puzzles, breaking systems, and occasionally making platformers that will test your patience.
+    Computer Science student at University of Latvia. CTF player ranked <strong>#153 globally</strong> on CTFtime. Member of <a href="https://ctftime.org/team/354033" style="color: var(--accent);">0xFUN</a> (Team Rank #41). Passionate about cybersecurity, game development, and building secure software solutions.
   </p>
 
   <div class="main-hero-links">
@@ -736,7 +774,7 @@ a:hover::after {
       <div class="stat-label">CTFs Documented</div>
     </div>
     <div class="stat-item">
-      <div class="stat-number">� 1st</div>
+      <div class="stat-number">�1st</div>
       <div class="stat-label">Best Placement</div>
     </div>
     <div class="stat-item">
@@ -774,15 +812,16 @@ a:hover::after {
 
   <div class="project-grid">
     <article class="project-card">
-      <span class="project-badge badge-game">Game</span>
+      <span class="project-badge badge-game">University Project</span>
       <h3 class="project-title">Shattered Towers</h3>
       <p class="project-desc">
-        A 2D platformer puzzle/rage game that will test your skills and patience. Navigate through challenging towers filled with traps, puzzles, and precision-based obstacles.
+        A 2D puzzle platformer built with Godot 4.5 featuring a unique dimension-switching mechanic. Players switch between Hope and Despair dimensions, affecting platform visibility and level layout. Includes wall sliding, dashing, and custom shaders for dimension transitions.
       </p>
       <div class="project-tags">
+        <span class="project-tag">Godot 4.5</span>
+        <span class="project-tag">GDScript</span>
         <span class="project-tag">2D Platformer</span>
-        <span class="project-tag">Puzzle</span>
-        <span class="project-tag">Rage Game</span>
+        <span class="project-tag">Shaders</span>
       </div>
       <div class="project-actions">
         <a class="project-btn" href="./ShatteredTowers/">Download</a>
@@ -841,60 +880,87 @@ a:hover::after {
 <section id="ctf-writeups">
   <div class="section-header">
     <span class="section-icon">🚩</span>
-    <h2 class="section-title">CTF Writeups</h2>
+    <h2 class="section-title">CTF Competition History</h2>
   </div>
-  <p class="section-subtitle">Competitions I've participated in with detailed writeups</p>
+  <p class="section-subtitle">Documented competitions with detailed writeups • Ranked #153 globally on CTFtime</p>
 
-  <div class="ctf-grid">
-    <article class="ctf-card">
-      <div class="ctf-card-header">
-        <span class="ctf-card-year">2025 · MetaCTF</span>
-        <span class="ctf-placement placement-bronze">🥉 3rd</span>
+  <div class="ctf-timeline">
+    
+    <div class="ctf-entry gold">
+      <div class="ctf-entry-card">
+        <div class="ctf-entry-header">
+          <h3 class="ctf-entry-title">BSides Algiers 2025</h3>
+          <span class="ctf-rank-badge gold">1st Place</span>
+        </div>
+        <div class="ctf-entry-meta">
+          <span class="ctf-meta-item">📅 2025</span>
+          <span class="ctf-meta-item">👥 Team: 0xFUN</span>
+          <span class="ctf-meta-item">🏷️ Blockchain, Crypto</span>
+        </div>
+        <a class="ctf-entry-link" href="./BSides%20Algiers%202025/">View Writeups →</a>
       </div>
-      <h3 class="ctf-card-title">MetaCTF December 2025 Flash CTF</h3>
-      <p class="ctf-card-team">Solo</p>
-      <a class="ctf-card-btn" href="./MetaCTF%20December%202025%20Flash%20CTF/">View Writeups</a>
-    </article>
+    </div>
 
-    <article class="ctf-card">
-      <div class="ctf-card-header">
-        <span class="ctf-card-year">2025 · NexHunt</span>
-        <span class="ctf-placement placement-top10">4th</span>
+    <div class="ctf-entry bronze">
+      <div class="ctf-entry-card">
+        <div class="ctf-entry-header">
+          <h3 class="ctf-entry-title">MetaCTF December 2025 Flash CTF</h3>
+          <span class="ctf-rank-badge bronze">3rd Place</span>
+        </div>
+        <div class="ctf-entry-meta">
+          <span class="ctf-meta-item">📅 December 2025</span>
+          <span class="ctf-meta-item">👤 Solo</span>
+          <span class="ctf-meta-item">🏷️ Misc, Forensics, Web</span>
+        </div>
+        <a class="ctf-entry-link" href="./MetaCTF%20December%202025%20Flash%20CTF/">View Writeups →</a>
       </div>
-      <h3 class="ctf-card-title">NexHunt CTF</h3>
-      <p class="ctf-card-team">Team: THEM?!</p>
-      <a class="ctf-card-btn" href="./NexHunt%20CTF/">View Writeups</a>
-    </article>
+    </div>
 
-    <article class="ctf-card">
-      <div class="ctf-card-header">
-        <span class="ctf-card-year">2025 · MCTF25</span>
-        <span class="ctf-placement placement-top10">8th</span>
+    <div class="ctf-entry">
+      <div class="ctf-entry-card">
+        <div class="ctf-entry-header">
+          <h3 class="ctf-entry-title">NexHunt CTF</h3>
+          <span class="ctf-rank-badge top10">4th Place</span>
+        </div>
+        <div class="ctf-entry-meta">
+          <span class="ctf-meta-item">📅 2025</span>
+          <span class="ctf-meta-item">👥 Team: THEM?!</span>
+          <span class="ctf-meta-item">🏷️ OSINT, Misc, Web, RE</span>
+        </div>
+        <a class="ctf-entry-link" href="./NexHunt%20CTF/">View Writeups →</a>
       </div>
-      <h3 class="ctf-card-title">Mārtiņa-CTF 2025</h3>
-      <p class="ctf-card-team">Team: Dikti cool ctf komanda</p>
-      <a class="ctf-card-btn" href="./MCTF25/">View Writeups</a>
-    </article>
+    </div>
 
-    <article class="ctf-card">
-      <div class="ctf-card-header">
-        <span class="ctf-card-year">2025 · HeroCTF</span>
-        <span class="ctf-placement">30th</span>
+    <div class="ctf-entry">
+      <div class="ctf-entry-card">
+        <div class="ctf-entry-header">
+          <h3 class="ctf-entry-title">Mārtiņa-CTF 2025</h3>
+          <span class="ctf-rank-badge top10">8th Place</span>
+        </div>
+        <div class="ctf-entry-meta">
+          <span class="ctf-meta-item">📅 2025</span>
+          <span class="ctf-meta-item">👥 Team: Dikti cool ctf komanda</span>
+          <span class="ctf-meta-item">🏷️ Blockchain, Web, Pwn</span>
+        </div>
+        <a class="ctf-entry-link" href="./MCTF25/">View Writeups →</a>
       </div>
-      <h3 class="ctf-card-title">HeroCTF v7</h3>
-      <p class="ctf-card-team">Team: ByteC4Ts</p>
-      <a class="ctf-card-btn" href="./HeroCTF%20v7/">View Writeups</a>
-    </article>
+    </div>
 
-    <article class="ctf-card">
-      <div class="ctf-card-header">
-        <span class="ctf-card-year">2025 · BSides</span>
-        <span class="ctf-placement placement-gold">🥇 1st</span>
+    <div class="ctf-entry">
+      <div class="ctf-entry-card">
+        <div class="ctf-entry-header">
+          <h3 class="ctf-entry-title">HeroCTF v7</h3>
+          <span class="ctf-rank-badge other">30th Place</span>
+        </div>
+        <div class="ctf-entry-meta">
+          <span class="ctf-meta-item">📅 2025</span>
+          <span class="ctf-meta-item">👥 Team: ByteC4Ts</span>
+          <span class="ctf-meta-item">🏷️ Crypto, Forensics, Prog, System</span>
+        </div>
+        <a class="ctf-entry-link" href="./HeroCTF%20v7/">View Writeups →</a>
       </div>
-      <h3 class="ctf-card-title">BSides Algiers 2025</h3>
-      <p class="ctf-card-team">Team: 0xFUN</p>
-      <a class="ctf-card-btn" href="./BSides%20Algiers%202025/">View Writeups</a>
-    </article>
+    </div>
+
   </div>
 </section>
 
