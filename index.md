@@ -38,6 +38,15 @@ body {
   padding: 2.5rem 1.5rem 4rem;
 }
 
+/* Hide default Jekyll/GitHub Pages header and title */
+.site-header, header.site-header,
+.page-header, .project-name, .project-tagline,
+h1.project-name, .site-title, header h1,
+.post-title, article > h1:first-child,
+.page-content > h1:first-of-type {
+  display: none !important;
+}
+
 html {
   scroll-behavior: smooth;
 }
