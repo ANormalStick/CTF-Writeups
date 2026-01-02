@@ -1,5 +1,6 @@
 ---
-title: "ANormalStick"
+title: "ANormalStick's Blog"
+layout: default
 ---
 
 <style>
@@ -748,10 +749,9 @@ a:hover::after {
 <!-- ===== MAIN HERO ===== -->
 
 <section class="main-hero">
-  <h1 class="main-hero-name">Janis Martins Ivans</h1>
-  <p class="main-hero-subtitle">aka ANormalStick</p>
+  <h1 class="main-hero-name">ANormalStick</h1>
   <p class="main-hero-tagline">
-    Computer Science student at University of Latvia. CTF player ranked <strong>#153 globally</strong> on CTFtime. Member of <a href="https://ctftime.org/team/354033" style="color: var(--accent);">0xFUN</a> (Team Rank #41). Passionate about cybersecurity, game development, and building secure software solutions.
+    Computer Science student from Latvia. CTF player ranked <strong>#153 globally</strong> on CTFtime. Member of <a href="https://ctftime.org/team/354033" style="color: var(--accent);">0xFUN</a> (Team Rank #41). Passionate about cybersecurity, game development, and building secure software solutions.
   </p>
 
   <div class="main-hero-links">
@@ -774,7 +774,7 @@ a:hover::after {
       <div class="stat-label">CTFs Documented</div>
     </div>
     <div class="stat-item">
-      <div class="stat-number">�1st</div>
+      <div class="stat-number gold-text">1st</div>
       <div class="stat-label">Best Placement</div>
     </div>
     <div class="stat-item">
