@@ -751,7 +751,7 @@ a:hover::after {
 <section class="main-hero">
   <h1 class="main-hero-name">ANormalStick</h1>
   <p class="main-hero-tagline">
-    Computer Science student at University of Latvia. CTF player ranked <strong>#153 globally</strong> on CTFtime. Member of <a href="https://ctftime.org/team/354033" style="color: var(--accent);">0xFUN</a> (Team Rank #41). Passionate about cybersecurity, game development, and building secure software solutions.
+    Computer Science student at University of Latvia. CTF player and member of <a href="https://ctftime.org/team/354033" style="color: var(--accent);">0xFUN</a> (Team Rank #41). Passionate about cybersecurity, game development, and building secure software solutions.
   </p>
 
   <div class="main-hero-links">
@@ -882,7 +882,7 @@ a:hover::after {
     <span class="section-icon">🚩</span>
     <h2 class="section-title">CTF Competition History</h2>
   </div>
-  <p class="section-subtitle">Documented competitions with detailed writeups • Ranked #153 globally on CTFtime</p>
+  <p class="section-subtitle">Documented competitions with detailed writeups</p>
 
   <div class="ctf-timeline">
     
