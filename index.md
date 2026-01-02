@@ -43,10 +43,15 @@ body {
 .page-header, .project-name, .project-tagline,
 h1.project-name, .site-title, header h1,
 .post-title, article > h1:first-child,
-.page-content > h1:first-of-type,
 main > h1:first-child, .container-lg > h1:first-child,
-body > h1:first-of-type, .markdown-body > h1:first-child,
-h1:first-of-type {
+.markdown-body > h1:first-child {
+  display: none !important;
+}
+
+/* Target the specific repo title that GitHub Pages adds */
+body > main > h1:first-of-type,
+.page-content > .wrapper > h1:first-of-type,
+.page-content > h1:first-of-type {
   display: none !important;
 }
 
