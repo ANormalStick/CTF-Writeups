@@ -101,7 +101,7 @@ html {
   flex-wrap: wrap;
   gap: 0.6rem;
   justify-content: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .hero-link {
@@ -125,6 +125,29 @@ html {
   background: rgba(56, 189, 248, 0.15);
   transform: translateY(-2px);
 }
+
+/* Contact Info */
+.contact-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--fg-muted);
+}
+
+.contact-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.contact-item a {
+  color: var(--accent);
+}
+
+.contact-item a::after { display: none !important; }
 
 .main-hero-stats {
   display: flex;
@@ -357,101 +380,144 @@ html {
 
 .ctf-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.2rem;
   margin-bottom: 2.5rem;
 }
 
 .ctf-card {
   position: relative;
-  border-radius: 0.9rem;
+  border-radius: 1rem;
   border: 1px solid var(--border-subtle);
-  background: var(--bg-card);
-  padding: 1.2rem 1.4rem;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
-  transition: all 0.18s ease-out;
+  background: linear-gradient(145deg, var(--bg-card), rgba(30, 41, 59, 0.6));
+  padding: 1.5rem 1.6rem;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+  transition: all 0.2s ease-out;
   overflow: hidden;
 }
 
+.ctf-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+}
+
 .ctf-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-5px);
   border-color: rgba(56, 189, 248, 0.5);
-  box-shadow: 0 18px 45px rgba(8, 47, 73, 0.6);
+  box-shadow: 0 22px 50px rgba(8, 47, 73, 0.7);
+}
+
+.ctf-card:hover::before {
+  opacity: 1;
 }
 
 .ctf-card-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 0.6rem;
+  align-items: center;
+  margin-bottom: 0.8rem;
 }
 
 .ctf-card-year {
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   color: var(--fg-muted);
+  font-weight: 500;
 }
 
 .ctf-placement {
-  padding: 0.15rem 0.5rem;
+  padding: 0.25rem 0.7rem;
   border-radius: 999px;
-  font-size: 0.7rem;
-  font-weight: 600;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
 .placement-gold {
-  background: linear-gradient(135deg, rgba(251, 191, 36, 0.3), rgba(251, 191, 36, 0.1));
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.4), rgba(251, 191, 36, 0.15));
   color: #fcd34d;
+  border: 1px solid rgba(251, 191, 36, 0.5);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .placement-silver {
-  background: linear-gradient(135deg, rgba(148, 163, 184, 0.3), rgba(148, 163, 184, 0.1));
-  color: #cbd5e1;
+  background: linear-gradient(135deg, rgba(192, 192, 192, 0.4), rgba(192, 192, 192, 0.15));
+  color: #e5e5e5;
+  border: 1px solid rgba(192, 192, 192, 0.5);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .placement-bronze {
-  background: linear-gradient(135deg, rgba(217, 119, 6, 0.3), rgba(217, 119, 6, 0.1));
-  color: #fbbf24;
+  background: linear-gradient(135deg, rgba(205, 127, 50, 0.4), rgba(205, 127, 50, 0.15));
+  color: #f5c27a;
+  border: 1px solid rgba(205, 127, 50, 0.5);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .placement-top10 {
-  background: linear-gradient(135deg, rgba(34, 197, 94, 0.3), rgba(34, 197, 94, 0.1));
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.35), rgba(34, 197, 94, 0.12));
   color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.4);
 }
 
 .ctf-card-title {
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   font-weight: 600;
-  margin: 0 0 0.3rem;
+  margin: 0 0 0.5rem;
+  color: var(--fg);
 }
 
 .ctf-card-team {
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   color: var(--fg-muted);
-  margin-bottom: 0.8rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.ctf-card-team::before {
+  content: "👥";
+  font-size: 0.8rem;
 }
 
 .ctf-card-btn {
   display: inline-flex;
   align-items: center;
-  padding: 0.3rem 0.8rem;
-  border-radius: 0.4rem;
-  font-size: 0.75rem;
+  gap: 0.4rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  border: 1px solid rgba(56, 189, 248, 0.5);
-  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.6);
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(56, 189, 248, 0.05));
   color: var(--accent);
   text-decoration: none;
   transition: all 0.15s ease-out;
 }
 
+.ctf-card-btn::before {
+  content: "📄";
+  font-size: 0.85rem;
+}
+
 .ctf-card-btn::after { display: none !important; }
 
 .ctf-card-btn:hover {
-  background: rgba(56, 189, 248, 0.2);
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.3), rgba(56, 189, 248, 0.1));
   border-color: var(--accent);
+  transform: translateX(3px);
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.2);
 }
 
 /* ===== CHALLENGE LIST ===== */
@@ -647,14 +713,21 @@ a:hover::after {
 <section class="main-hero">
   <h1 class="main-hero-name">ANormalStick</h1>
   <p class="main-hero-tagline">
-    CTF player, challenge creator, and game developer. Building puzzles, breaking systems, and occasionally making platformers that will test your patience.
+    Latvian CTF player, challenge creator, and game developer. Member of <a href="https://ctftime.org/team/354033" style="color: var(--accent);">0xFUN</a> (Global Rank #41). Building puzzles, breaking systems, and occasionally making platformers that will test your patience.
   </p>
 
   <div class="main-hero-links">
     <a class="hero-link" href="https://github.com/ANormalStick">📦 GitHub</a>
+    <a class="hero-link" href="https://www.linkedin.com/in/j%C4%81nis-m%C4%81rti%C5%86%C5%A1-%C4%ABv%C4%81ns-0927962a0/">💼 LinkedIn</a>
+    <a class="hero-link" href="https://ctftime.org/team/354033">🏴 0xFUN</a>
     <a class="hero-link" href="#projects">🎮 Projects</a>
     <a class="hero-link" href="#ctf-writeups">🚩 CTF Writeups</a>
     <a class="hero-link" href="#my-challenges">🧩 My Challenges</a>
+  </div>
+
+  <div class="contact-info">
+    <span class="contact-item">💬 Discord: <strong>ANormalStick</strong></span>
+    <span class="contact-item">📧 <a href="mailto:agitaundainis@gmail.com">agitaundainis@gmail.com</a></span>
   </div>
 
   <div class="main-hero-stats">
@@ -663,8 +736,12 @@ a:hover::after {
       <div class="stat-label">CTFs Documented</div>
     </div>
     <div class="stat-item">
-      <div class="stat-number">🥉 3rd</div>
+      <div class="stat-number">� 1st</div>
       <div class="stat-label">Best Placement</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">#41</div>
+      <div class="stat-label">Team Global Rank</div>
     </div>
     <div class="stat-item">
       <div class="stat-number">2</div>
@@ -782,10 +859,10 @@ a:hover::after {
     <article class="ctf-card">
       <div class="ctf-card-header">
         <span class="ctf-card-year">2025 · NexHunt</span>
-        <span class="ctf-placement placement-top10">4th</span>
+        <span class="ctf-placement placement-silver">🥈 2nd</span>
       </div>
       <h3 class="ctf-card-title">NexHunt CTF</h3>
-      <p class="ctf-card-team">Team: THEM?!</p>
+      <p class="ctf-card-team">Team: 0xFUN</p>
       <a class="ctf-card-btn" href="./NexHunt%20CTF/">View Writeups</a>
     </article>
 
@@ -812,10 +889,10 @@ a:hover::after {
     <article class="ctf-card">
       <div class="ctf-card-header">
         <span class="ctf-card-year">2025 · BSides</span>
-        <span class="ctf-placement">TBD</span>
+        <span class="ctf-placement placement-gold">🥇 1st</span>
       </div>
       <h3 class="ctf-card-title">BSides Algiers 2025</h3>
-      <p class="ctf-card-team">Team: 0xFun · Scoreboard Frozen</p>
+      <p class="ctf-card-team">Team: 0xFUN</p>
       <a class="ctf-card-btn" href="./BSides%20Algiers%202025/">View Writeups</a>
     </article>
   </div>
