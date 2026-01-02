@@ -854,6 +854,7 @@ a:hover::after {
       </div>
       <div class="project-actions">
         <a class="project-btn" href="./ChallangesIMade/MusicBoxV2/">Writeup</a>
+        <a class="project-btn" href="./ChallangesIMade/MusicBoxV2/Music%20Box%20v2.7z">Download</a>
       </div>
     </article>
 
@@ -870,6 +871,7 @@ a:hover::after {
       </div>
       <div class="project-actions">
         <a class="project-btn" href="./ChallangesIMade/NaughtyOrNice/">Writeup</a>
+        <a class="project-btn" href="./ChallangesIMade/NaughtyOrNice/NaughtyOrNice.zip">Download</a>
       </div>
     </article>
   </div>
