@@ -660,7 +660,7 @@ a:hover::after {
   <div class="main-hero-stats">
     <div class="stat-item">
       <div class="stat-number">5</div>
-      <div class="stat-label">CTFs Played</div>
+      <div class="stat-label">CTFs Documented</div>
     </div>
     <div class="stat-item">
       <div class="stat-number">🥉 3rd</div>
