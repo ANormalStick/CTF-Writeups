@@ -859,10 +859,10 @@ a:hover::after {
     <article class="ctf-card">
       <div class="ctf-card-header">
         <span class="ctf-card-year">2025 · NexHunt</span>
-        <span class="ctf-placement placement-silver">🥈 2nd</span>
+        <span class="ctf-placement placement-top10">4th</span>
       </div>
       <h3 class="ctf-card-title">NexHunt CTF</h3>
-      <p class="ctf-card-team">Team: 0xFUN</p>
+      <p class="ctf-card-team">Team: THEM?!</p>
       <a class="ctf-card-btn" href="./NexHunt%20CTF/">View Writeups</a>
     </article>
 
