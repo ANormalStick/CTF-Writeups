@@ -787,7 +787,7 @@ a:hover::after {
 
   <div class="main-hero-stats">
     <div class="stat-item">
-      <div class="stat-number">5</div>
+      <div class="stat-number">7</div>
       <div class="stat-label">CTFs Documented</div>
     </div>
     <div class="stat-item">
@@ -904,6 +904,36 @@ a:hover::after {
   <p class="section-subtitle">Documented competitions with detailed writeups</p>
 
   <div class="ctf-timeline">
+
+    <div class="ctf-entry">
+      <div class="ctf-entry-card">
+        <div class="ctf-entry-header">
+          <h3 class="ctf-entry-title">UofTCTF 2026</h3>
+          <span class="ctf-rank-badge other">22nd Place</span>
+        </div>
+        <div class="ctf-entry-meta">
+          <span class="ctf-meta-item">📅 January 2026</span>
+          <span class="ctf-meta-item">👥 Team: 0xFUN</span>
+          <span class="ctf-meta-item">🏷️ Rev, PWN, Web, Crypto, Forensics, Misc</span>
+        </div>
+        <a class="ctf-entry-link" href="./UofTCTF%202026/">View Writeups →</a>
+      </div>
+    </div>
+
+    <div class="ctf-entry top10">
+      <div class="ctf-entry-card">
+        <div class="ctf-entry-header">
+          <h3 class="ctf-entry-title">Scarlet CTF 2026</h3>
+          <span class="ctf-rank-badge top10">8th Place</span>
+        </div>
+        <div class="ctf-entry-meta">
+          <span class="ctf-meta-item">📅 January 2026</span>
+          <span class="ctf-meta-item">👥 Team: 0xFUN</span>
+          <span class="ctf-meta-item">🏷️ Web, Crypto, Forensics, OSINT</span>
+        </div>
+        <a class="ctf-entry-link" href="./Scarlet%20CTF/">View Writeups →</a>
+      </div>
+    </div>
     
     <div class="ctf-entry gold">
       <div class="ctf-entry-card">
@@ -1108,6 +1138,18 @@ a:hover::after {
         <span class="challenge-name">Genie</span>
         <a class="challenge-btn" href="./BSides%20Algiers%202025/Genie/">README</a>
       </div>
+      <div class="challenge-row">
+        <span class="challenge-name">Coloring Fraud</span>
+        <a class="challenge-btn" href="./Scarlet%20CTF/Coloring%20Fraud/">README</a>
+      </div>
+      <div class="challenge-row">
+        <span class="challenge-name">Coloring Heist</span>
+        <a class="challenge-btn" href="./Scarlet%20CTF/Coloring%20Heist/">README</a>
+      </div>
+      <div class="challenge-row">
+        <span class="challenge-name">Gambler's Fallacy</span>
+        <a class="challenge-btn" href="./UofTCTF%202026/Gambler's%20Fallacy/">README</a>
+      </div>
     </div>
   </div>
 
@@ -1134,6 +1176,14 @@ a:hover::after {
       <div class="challenge-row">
         <span class="challenge-name">Making The Naughty List</span>
         <a class="challenge-btn" href="./MetaCTF%20December%202025%20Flash%20CTF/MakingTheNaughtyList/">README</a>
+      </div>
+      <div class="challenge-row">
+        <span class="challenge-name">Sad Face</span>
+        <a class="challenge-btn" href="./Scarlet%20CTF/Sad%20Face/">README</a>
+      </div>
+      <div class="challenge-row">
+        <span class="challenge-name">My Pokemon Card is Fake!</span>
+        <a class="challenge-btn" href="./UofTCTF%202026/My%20Pokemon%20Card%20is%20Fake!/">README</a>
       </div>
     </div>
   </div>
@@ -1182,6 +1232,14 @@ a:hover::after {
         <span class="challenge-name">Santa's Christmas Calculator</span>
         <a class="challenge-btn" href="./MetaCTF%20December%202025%20Flash%20CTF/SantasChristmasCalculator/">README</a>
       </div>
+      <div class="challenge-row">
+        <span class="challenge-name">Lottery</span>
+        <a class="challenge-btn" href="./UofTCTF%202026/Lottery/">README</a>
+      </div>
+      <div class="challenge-row">
+        <span class="challenge-name">Vibe Code</span>
+        <a class="challenge-btn" href="./UofTCTF%202026/Vibe%20Code/">README</a>
+      </div>
     </div>
   </div>
 
@@ -1196,6 +1254,14 @@ a:hover::after {
       <div class="challenge-row">
         <span class="challenge-name">A Lone Love</span>
         <a class="challenge-btn" href="./NexHunt%20CTF/A%20Lone%20Love/">README</a>
+      </div>
+      <div class="challenge-row">
+        <span class="challenge-name">Scouts Honor 2.0</span>
+        <a class="challenge-btn" href="./Scarlet%20CTF/Scouts%20Honor%202.0/">README</a>
+      </div>
+      <div class="challenge-row">
+        <span class="challenge-name">Stuck In The Middle With You</span>
+        <a class="challenge-btn" href="./Scarlet%20CTF/Stuck%20In%20The%20Middle%20With%20You/">README</a>
       </div>
     </div>
   </div>
@@ -1215,6 +1281,10 @@ a:hover::after {
       <div class="challenge-row">
         <span class="challenge-name">Docker? I barely know her!</span>
         <a class="challenge-btn" href="./MCTF25/Docker,%20I%20barely%20know%20her!/">README</a>
+      </div>
+      <div class="challenge-row">
+        <span class="challenge-name">extended-eBPF</span>
+        <a class="challenge-btn" href="./UofTCTF%202026/extended-eBPF/">README</a>
       </div>
     </div>
   </div>
@@ -1249,6 +1319,14 @@ a:hover::after {
       <div class="challenge-row">
         <span class="challenge-name">HuntMe1</span>
         <a class="challenge-btn" href="./NexHunt%20CTF/HuntMe1/">README</a>
+      </div>
+      <div class="challenge-row">
+        <span class="challenge-name">Bring Your Own Program</span>
+        <a class="challenge-btn" href="./UofTCTF%202026/Bring%20Your%20Own%20Program/">README</a>
+      </div>
+      <div class="challenge-row">
+        <span class="challenge-name">Symbol of Hope</span>
+        <a class="challenge-btn" href="./UofTCTF%202026/Symbol%20of%20Hope/">README</a>
       </div>
     </div>
   </div>
@@ -1307,6 +1385,22 @@ a:hover::after {
       <div class="challenge-row">
         <span class="challenge-name">Gigs</span>
         <a class="challenge-btn" href="./MetaCTF%20December%202025%20Flash%20CTF/Gigs/">README</a>
+      </div>
+      <div class="challenge-row">
+        <span class="challenge-name">Campus One</span>
+        <a class="challenge-btn" href="./Scarlet%20CTF/Campus%20One/">README</a>
+      </div>
+      <div class="challenge-row">
+        <span class="challenge-name">Mole in the Wall</span>
+        <a class="challenge-btn" href="./Scarlet%20CTF/Mole%20in%20the%20Wall/">README</a>
+      </div>
+      <div class="challenge-row">
+        <span class="challenge-name">Firewall</span>
+        <a class="challenge-btn" href="./UofTCTF%202026/Firewall/">README</a>
+      </div>
+      <div class="challenge-row">
+        <span class="challenge-name">Personal Blog</span>
+        <a class="challenge-btn" href="./UofTCTF%202026/Personal%20Blog/">README</a>
       </div>
     </div>
   </div>
