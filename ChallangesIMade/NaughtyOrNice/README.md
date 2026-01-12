@@ -7,7 +7,7 @@
 
 ## 📥 Download Challenge
 
-**[Download NaughtyOrNice.zip](./NaughtyOrNice.zip)** - Try to solve it yourself before reading the writeup!
+**[Download NaughtyOrNice.zip](https://media.githubusercontent.com/media/ANormalStick/CTF-Writeups/main/ChallangesIMade/NaughtyOrNice/NaughtyOrNice.zip)** - Try to solve it yourself before reading the writeup!
 
 ---
 

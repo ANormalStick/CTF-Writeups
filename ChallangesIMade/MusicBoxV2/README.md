@@ -8,7 +8,7 @@
 
 ## 📥 Download Challenge
 
-**[Download Music Box v2.7z](./Music%20Box%20v2.7z)** - Try to solve it yourself before reading the writeup!
+**[Download Music Box v2.7z](https://media.githubusercontent.com/media/ANormalStick/CTF-Writeups/main/ChallangesIMade/MusicBoxV2/Music%20Box%20v2.7z)** - Try to solve it yourself before reading the writeup!
 
 ---
 
