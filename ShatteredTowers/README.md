@@ -15,7 +15,7 @@ Players switch between two dimensions — **Hope** and **Despair** — affecting
 
 ## Download
 
-📥 **[Download Shattered Towers Launcher.rar](./Shattered%20Towers%20Launcher.rar)**
+📥 **[Download Shattered Towers Launcher.rar](https://media.githubusercontent.com/media/ANormalStick/CTF-Writeups/main/ShatteredTowers/Shattered%20Towers%20Launcher.rar)**
 
 ## Technologies Used
 
