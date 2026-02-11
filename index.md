@@ -787,7 +787,7 @@ a:hover::after {
 
   <div class="main-hero-stats">
     <div class="stat-item">
-      <div class="stat-number">7</div>
+      <div class="stat-number">8</div>
       <div class="stat-label">CTFs Documented</div>
     </div>
     <div class="stat-item">
@@ -904,6 +904,21 @@ a:hover::after {
   <p class="section-subtitle">Documented competitions with detailed writeups</p>
 
   <div class="ctf-timeline">
+
+    <div class="ctf-entry bronze">
+      <div class="ctf-entry-card">
+        <div class="ctf-entry-header">
+          <h3 class="ctf-entry-title">0xLaugh CTF V5</h3>
+          <span class="ctf-rank-badge bronze">3rd Place</span>
+        </div>
+        <div class="ctf-entry-meta">
+          <span class="ctf-meta-item">📅 February 2026</span>
+          <span class="ctf-meta-item">👥 Team: 0xFUN</span>
+          <span class="ctf-meta-item">🏷️ Blockchain, Crypto, DFIR, Pwn, RE, Web</span>
+        </div>
+        <a class="ctf-entry-link" href="./0xLaugh%20CTF%20V5/">View Writeups →</a>
+      </div>
+    </div>
 
     <div class="ctf-entry">
       <div class="ctf-entry-card">
@@ -1027,6 +1042,7 @@ a:hover::after {
     <a class="category-chip" href="#cat-blockchain">Blockchain</a>
     <a class="category-chip" href="#cat-blockchain-forensics">Blockchain / Forensics</a>
     <a class="category-chip" href="#cat-crypto">Crypto</a>
+    <a class="category-chip" href="#cat-dfir">DFIR</a>
     <a class="category-chip" href="#cat-forensics">Forensics</a>
     <a class="category-chip" href="#cat-misc">Misc / Fun</a>
     <a class="category-chip" href="#cat-osint">OSINT</a>
@@ -1092,6 +1108,14 @@ a:hover::after {
         <span class="challenge-name">BSides Only-invited party REVENGE</span>
         <a class="challenge-btn" href="./BSides%20Algiers%202025/BSides%20Only-invited%20party%20REVENGE/">README</a>
       </div>
+      <div class="challenge-row">
+        <span class="challenge-name">House of Illusions</span>
+        <a class="challenge-btn" href="./0xLaugh%20CTF%20V5/House%20of%20Illusions/">README</a>
+      </div>
+      <div class="challenge-row">
+        <span class="challenge-name">Void Bound Blade</span>
+        <a class="challenge-btn" href="./0xLaugh%20CTF%20V5/Void%20Bound%20Blade/">README</a>
+      </div>
     </div>
   </div>
 
@@ -1149,6 +1173,29 @@ a:hover::after {
       <div class="challenge-row">
         <span class="challenge-name">Gambler's Fallacy</span>
         <a class="challenge-btn" href="./UofTCTF%202026/Gambler's%20Fallacy/">README</a>
+      </div>
+      <div class="challenge-row">
+        <span class="challenge-name">Reduced Dimension</span>
+        <a class="challenge-btn" href="./0xLaugh%20CTF%20V5/Reduced%20Dimension/">README</a>
+      </div>
+      <div class="challenge-row">
+        <span class="challenge-name">SCA2</span>
+        <a class="challenge-btn" href="./0xLaugh%20CTF%20V5/SCA2/">README</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- DFIR -->
+  <div class="challenge-section" id="cat-dfir">
+    <h3>DFIR</h3>
+    <div class="challenge-list">
+      <div class="challenge-list-header">
+        <span>Challenge</span>
+        <span>Writeup</span>
+      </div>
+      <div class="challenge-row">
+        <span class="challenge-name">The Hood</span>
+        <a class="challenge-btn" href="./0xLaugh%20CTF%20V5/The%20Hood/">README</a>
       </div>
     </div>
   </div>
@@ -1286,6 +1333,10 @@ a:hover::after {
         <span class="challenge-name">extended-eBPF</span>
         <a class="challenge-btn" href="./UofTCTF%202026/extended-eBPF/">README</a>
       </div>
+      <div class="challenge-row">
+        <span class="challenge-name">House Of Pain</span>
+        <a class="challenge-btn" href="./0xLaugh%20CTF%20V5/House%20Of%20Pain/">README</a>
+      </div>
     </div>
   </div>
 
@@ -1327,6 +1378,14 @@ a:hover::after {
       <div class="challenge-row">
         <span class="challenge-name">Symbol of Hope</span>
         <a class="challenge-btn" href="./UofTCTF%202026/Symbol%20of%20Hope/">README</a>
+      </div>
+      <div class="challenge-row">
+        <span class="challenge-name">12</span>
+        <a class="challenge-btn" href="./0xLaugh%20CTF%20V5/12/">README</a>
+      </div>
+      <div class="challenge-row">
+        <span class="challenge-name">Psycho Flag</span>
+        <a class="challenge-btn" href="./0xLaugh%20CTF%20V5/Psycho%20Flag/">README</a>
       </div>
     </div>
   </div>
@@ -1401,6 +1460,10 @@ a:hover::after {
       <div class="challenge-row">
         <span class="challenge-name">Personal Blog</span>
         <a class="challenge-btn" href="./UofTCTF%202026/Personal%20Blog/">README</a>
+      </div>
+      <div class="challenge-row">
+        <span class="challenge-name">PDF.EXE</span>
+        <a class="challenge-btn" href="./0xLaugh%20CTF%20V5/PDF.EXE/">README</a>
       </div>
     </div>
   </div>
