@@ -1,0 +1,7 @@
+Challange Name: Lines of Contact
+
+You’re aboard a deep-space relay station when an incoming capture hits your buffer: a mono audio recording labeled “0xfun”.
+
+The analysts insist it’s alien. But the encoding style feels… familiar. Like something humanity would send when it wanted to be understood without sharing a language.
+
+Dig into the signal, recover what it’s really carrying, and extract the flag.

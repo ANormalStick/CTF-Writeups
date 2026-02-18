@@ -1,0 +1,18 @@
+Name: 
+Temptation. Stone. Silence.
+
+Category:
+OSINT
+
+Description:
+Three images. Three fragments. Each one points to a place, and each one carries a different kind of weight.
+
+Temptation shows up first. Something made to catch the eye and test what people choose to value.
+Stone comes next. A name important enough to be carved and left behind when everything else moves on.
+Silence comes last. The silence of a legend. They say the region’s elder once made a deal with the devil, and the land has been quiet about it ever since.
+
+Find the Latvian place name (pilsēta/ciems) for each image and submit the flag:
+
+0xfun{City1_City2_City3}
+
+Names only. Latvian spelling and diacritics required.

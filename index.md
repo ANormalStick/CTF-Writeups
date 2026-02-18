@@ -351,6 +351,18 @@ html {
   border: 1px solid rgba(251, 191, 36, 0.4);
 }
 
+.badge-forensics {
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.3), rgba(249, 115, 22, 0.1));
+  color: #fdba74;
+  border: 1px solid rgba(249, 115, 22, 0.4);
+}
+
+.badge-osint {
+  background: linear-gradient(135deg, rgba(20, 184, 166, 0.3), rgba(20, 184, 166, 0.1));
+  color: #5eead4;
+  border: 1px solid rgba(20, 184, 166, 0.4);
+}
+
 .project-title {
   font-size: 1.15rem;
   font-weight: 600;
@@ -889,6 +901,126 @@ a:hover::after {
       <div class="project-actions">
         <a class="project-btn" href="./ChallangesIMade/NaughtyOrNice/">Writeup</a>
         <a class="project-btn" href="./ChallangesIMade/NaughtyOrNice/NaughtyOrNice.zip">Download</a>
+      </div>
+    </article>
+
+    <article class="project-card">
+      <span class="project-badge badge-misc">Minecraft / Forensics / OSINT</span>
+      <h3 class="project-title">ANormalJourney</h3>
+      <p class="project-desc">
+        A Minecraft world forensics puzzle. Recover the creator's last logout position from NBT data, decode Base64 clues hidden in books, use bedrock pattern matching to locate the final flag stash.
+      </p>
+      <div class="project-tags">
+        <span class="project-tag">Minecraft</span>
+        <span class="project-tag">NBT Analysis</span>
+        <span class="project-tag">Base64</span>
+        <span class="project-tag">Bedrock Patterns</span>
+      </div>
+      <div class="project-actions">
+        <a class="project-btn" href="./ChallangesIMade/ANormalJourney/">Writeup</a>
+        <a class="project-btn" href="./ChallangesIMade/ANormalJourney/ANormalSticks%20Let%27s%20Play%20%231.rar">Download</a>
+      </div>
+    </article>
+
+    <article class="project-card">
+      <span class="project-badge badge-misc">Signal Processing</span>
+      <h3 class="project-title">Lines of Contact</h3>
+      <p class="project-desc">
+        Decode a deep-space audio transmission hiding raster images. Detect sync pulses in a WAV file, extract scanlines, and reconstruct hidden pictures — Golden Record style.
+      </p>
+      <div class="project-tags">
+        <span class="project-tag">Audio Analysis</span>
+        <span class="project-tag">Raster Decoding</span>
+        <span class="project-tag">Signal Processing</span>
+      </div>
+      <div class="project-actions">
+        <a class="project-btn" href="./ChallangesIMade/LinesOfContact/">Writeup</a>
+        <a class="project-btn" href="./ChallangesIMade/LinesOfContact/Lines%20of%20Contact.rar">Download</a>
+      </div>
+    </article>
+
+    <article class="project-card">
+      <span class="project-badge badge-forensics">Forensics</span>
+      <h3 class="project-title">Pixel Rehab</h3>
+      <p class="project-desc">
+        A corrupted PNG with a hidden 7z archive appended after the IEND chunk. Fix the signature byte, parse PNG chunks to find the trailer, swap the magic bytes, and extract the real flag.
+      </p>
+      <div class="project-tags">
+        <span class="project-tag">PNG Forensics</span>
+        <span class="project-tag">File Carving</span>
+        <span class="project-tag">7z Archive</span>
+      </div>
+      <div class="project-actions">
+        <a class="project-btn" href="./ChallangesIMade/PixelRehab/">Writeup</a>
+        <a class="project-btn" href="./ChallangesIMade/PixelRehab/pixel.fun">Download</a>
+      </div>
+    </article>
+
+    <article class="project-card">
+      <span class="project-badge badge-misc">Misc</span>
+      <h3 class="project-title">Skyglyph I: Guide Star</h3>
+      <p class="project-desc">
+        A star-tracker calibration puzzle. Use labeled guide stars to fit a camera model with radial distortion, then invert it to map all detections back to sky coordinates. The brightest stars spell a hidden message.
+      </p>
+      <div class="project-tags">
+        <span class="project-tag">Astrometry</span>
+        <span class="project-tag">Camera Calibration</span>
+        <span class="project-tag">Gnomonic Projection</span>
+      </div>
+      <div class="project-actions">
+        <a class="project-btn" href="./ChallangesIMade/SkyglyphIGuideStar/">Writeup</a>
+        <a class="project-btn" href="./ChallangesIMade/SkyglyphIGuideStar/Skyglyph%20I%20Guide%20Star.zip">Download</a>
+      </div>
+    </article>
+
+    <article class="project-card">
+      <span class="project-badge badge-misc">Misc / Crypto / Forensics</span>
+      <h3 class="project-title">Skyglyph II: Blind Drift</h3>
+      <p class="project-desc">
+        Blind plate-solve 4 noisy star frames against a catalog, extract matching star IDs, derive per-frame ChaCha20-Poly1305 keys, and decrypt flag parts. AEAD authentication enforces perfect correctness.
+      </p>
+      <div class="project-tags">
+        <span class="project-tag">Plate Solving</span>
+        <span class="project-tag">ChaCha20-Poly1305</span>
+        <span class="project-tag">RANSAC</span>
+        <span class="project-tag">SHA256</span>
+      </div>
+      <div class="project-actions">
+        <a class="project-btn" href="./ChallangesIMade/SkyglyphIIBlindDrift/">Writeup</a>
+        <a class="project-btn" href="./ChallangesIMade/SkyglyphIIBlindDrift/Skyglyph%20II%20Blind%20Drift.zip">Download</a>
+      </div>
+    </article>
+
+    <article class="project-card">
+      <span class="project-badge badge-osint">OSINT</span>
+      <h3 class="project-title">Temptation. Stone. Silence.</h3>
+      <p class="project-desc">
+        Three images, three fragments — each pointing to a Latvian place. Use reverse image search, identify carved faces, and trace devil folklore to pinpoint three locations with proper Latvian diacritics.
+      </p>
+      <div class="project-tags">
+        <span class="project-tag">Reverse Image Search</span>
+        <span class="project-tag">Geolocation</span>
+        <span class="project-tag">Latvian Culture</span>
+      </div>
+      <div class="project-actions">
+        <a class="project-btn" href="./ChallangesIMade/TemptationStoneSilence/">Writeup</a>
+        <a class="project-btn" href="./ChallangesIMade/TemptationStoneSilence/Temptation.%20Stone.%20Silence..zip">Download</a>
+      </div>
+    </article>
+
+    <article class="project-card">
+      <span class="project-badge badge-osint">OSINT / GTA V</span>
+      <h3 class="project-title">Where's Franklin?</h3>
+      <p class="project-desc">
+        A GTA V geolocation challenge. Given a screenshot of Franklin standing next to a road, identify the exact in-game location using database lookups or manual map exploration.
+      </p>
+      <div class="project-tags">
+        <span class="project-tag">GTA V</span>
+        <span class="project-tag">Geolocation</span>
+        <span class="project-tag">GeoGuessr</span>
+      </div>
+      <div class="project-actions">
+        <a class="project-btn" href="./ChallangesIMade/WheresFranklin/">Writeup</a>
       </div>
     </article>
   </div>

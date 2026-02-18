@@ -1,0 +1,135 @@
+Write-up (hard version, no hints)
+Story recap
+
+You intercept a mono audio “transmission.” It sounds like static, but the key is: it’s structured. The challenge is to prove it’s not random by recovering what’s encoded inside.
+
+This is basically analog “pictures in audio” (Golden Record–style raster), but you’re not told that up front.
+
+1) First triage: “is this really just noise?”
+
+What to do
+
+Open ctf_record.wav in Audacity (or any waveform viewer).
+
+Zoom in.
+
+What you notice
+
+There are repeating deep negative spikes at regular-ish intervals.
+
+That pattern is your first clue: real noise doesn’t produce clean periodic “events” like that.
+
+Interpretation
+
+Those spikes look like a line sync pulse: something that marks “start of a line.”
+
+2) Hypothesis: it’s a raster stream (audio → image)
+
+If there’s a repeating sync, the classic structure is:
+
+[sync pulse][signal payload][sync pulse][signal payload]...
+
+And if you stack payloads line-by-line, you get an image.
+
+This is the “aha”: treat the audio as scanlines.
+
+3) Extract line starts (sync detection)
+
+Goal: find sample indices where a sync pulse starts.
+
+How (from scratch, no constants)
+
+Take the audio samples and look at their distribution.
+
+Sync pulses are the most negative plateau in the whole file.
+
+A robust approach:
+
+Let m = min(audio)
+
+Choose a threshold like thr = 0.7 * m
+
+Mark runs where audio < thr
+
+Noise may produce brief dips; real pulses produce longer runs.
+Filter by run length:
+
+Compute run lengths of consecutive samples below threshold.
+
+Keep the long ones (e.g., top 10–20% or > median of the longest cluster).
+
+Outcome
+
+You get a list of sync start indices: starts[].
+
+4) Estimate line spacing (samples per line)
+
+Goal: know where one line ends and the next begins.
+
+Compute:
+
+diffs = starts[i+1] - starts[i]
+
+During picture regions, diffs will cluster tightly around a nominal value (small drift is normal).
+
+Use:
+
+nominal_line = median(diffs) (after ignoring huge gaps)
+
+This gives you “how many samples per line.”
+
+5) Find image boundaries (where one picture ends)
+
+There will be big gaps in diffs between picture segments (preamble / marker / separator).
+
+So:
+
+Find indices where diffs is much larger than normal, e.g. diffs > 3 * nominal_line
+
+Split starts[] into chunks (segments).
+
+Each chunk with lots of lines is a “picture.”
+
+6) Decode each line into pixels
+
+For each line:
+
+Take samples from start + sync_len to next_start as the “video payload”
+
+But we still need sync_len.
+
+How to infer sync length (not guess)
+
+Once you have below-threshold runs, measure their lengths.
+
+The “real sync pulses” form a tight cluster (e.g., ~30-ish samples).
+
+sync_len = median(long_run_lengths)
+
+Now you can slice:
+
+payload = audio[start + sync_len : next_start]
+
+Because there’s slight time drift (“wow”), payload length may vary slightly per line.
+To make a clean image:
+
+Resample each payload to a fixed width = median payload length.
+
+7) Stack lines into an image
+
+Convert each resampled payload into a row.
+
+Stack rows in order → 2D array (height = number of lines in the segment).
+
+Then normalize brightness robustly:
+
+Use percentiles (1%–99%) to avoid being fooled by noise.
+
+Save as PNG. One segment should look like a calibration image (circle or obvious shape). The next contains the flag.
+
+8) Read the flag
+
+Once the flag image appears, you just read it and submit:
+0xfun{...}
+
+That’s the end.

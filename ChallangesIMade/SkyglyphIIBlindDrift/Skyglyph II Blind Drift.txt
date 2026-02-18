@@ -1,0 +1,3 @@
+Skyglyph II: Blind Drift |  Difficulty: Very Hard  |  Category: Misc/Crypto/Forensics
+Description:
+No more hand-holding. You now have 4 noisy frames of detections and a full catalog. You get a rough pointing seed for frame1 only, and that’s it. Plate-solve each frame (pose + radial distortion), recover the correct star IDs, then decrypt one part of the flag per frame. Wrong matches don’t “almost work”, AEAD authentication will fail.
