@@ -811,7 +811,7 @@ a:hover::after {
       <div class="stat-label">Team Global Rank</div>
     </div>
     <div class="stat-item">
-      <div class="stat-number">2</div>
+      <div class="stat-number">9</div>
       <div class="stat-label">Challenges Created</div>
     </div>
     <div class="stat-item">
