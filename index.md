@@ -1021,6 +1021,7 @@ a:hover::after {
       </div>
       <div class="project-actions">
         <a class="project-btn" href="./ChallangesIMade/WheresFranklin/">Writeup</a>
+        <a class="project-btn" href="./ChallangesIMade/WheresFranklin/e0652c78-acce-48d5-86e2-5106bb6e6248.jpg">Download</a>
       </div>
     </article>
   </div>

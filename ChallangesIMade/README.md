@@ -90,7 +90,7 @@ Three images, three fragments — each pointing to a Latvian place. Use reverse 
 
 A GTA V geolocation challenge. Given a screenshot of Franklin standing next to a road, identify the exact in-game location using database lookups or manual map exploration.
 
-[View Writeup](./WheresFranklin/)
+[View Writeup](./WheresFranklin/) | [Download Challenge](./WheresFranklin/e0652c78-acce-48d5-86e2-5106bb6e6248.jpg)
 
 ---
 
